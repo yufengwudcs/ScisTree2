@@ -1,5 +1,5 @@
 # ScisTree2
-Fast cell lineage tree reconstruction for large single cell data.  November 4, 2023.
+Fast cell lineage tree reconstruction for large single cell data.  January 25, 2024.
 
 Software accompanyment for "ScisTree2: Accurate Cell Lineage Tree Inference for Tens of Thousands of Cells from Noisy Single Cell Data", Haotian Zhang, Teng Gao, Yiming Zhang, Peter Kharchenko and Yufeng Wu, submitted for publication, 2023.
 
@@ -13,7 +13,7 @@ Check if ScisTree2 is ready to run by typing: "./scistree". You should see some 
 Now type: "./scistree example-input.dat"
 You should see the following output:
 
-*** SCISTREE ver. 2.0.0.0, November 4, 2023 ***
+*** SCISTREE ver. 2.1.0.0, November 4, 2023 ***
 
 **** Maximum log-likelihood: -6.27126, number of changed genotypes: 2
 Computed log-lielihood from changed genotypes: -6.27126
