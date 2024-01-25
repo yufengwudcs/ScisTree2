@@ -1,8 +1,7 @@
 # ScisTree2
 Fast cell lineage tree reconstruction for large single cell data.  
 
-# current version: v2.1.0.0. 
-Released: January 25, 2024.
+Current version: v2.1.0.0. Released: January 25, 2024.
 
 Software accompanyment for "ScisTree2: Accurate Cell Lineage Tree Inference for Tens of Thousands of Cells from Noisy Single Cell Data", Haotian Zhang, Teng Gao, Yiming Zhang, Peter Kharchenko and Yufeng Wu, submitted for publication, 2023.
 
