@@ -1,5 +1,8 @@
 # ScisTree2
-Fast cell lineage tree reconstruction for large single cell data.  January 25, 2024.
+Fast cell lineage tree reconstruction for large single cell data.  
+
+# current version: v2.1.0.0. 
+Released: January 25, 2024.
 
 Software accompanyment for "ScisTree2: Accurate Cell Lineage Tree Inference for Tens of Thousands of Cells from Noisy Single Cell Data", Haotian Zhang, Teng Gao, Yiming Zhang, Peter Kharchenko and Yufeng Wu, submitted for publication, 2023.
 
@@ -13,7 +16,7 @@ Check if ScisTree2 is ready to run by typing: "./scistree". You should see some 
 Now type: "./scistree example-input.dat"
 You should see the following output:
 
-*** SCISTREE ver. 2.1.0.0, November 4, 2023 ***
+*** SCISTREE ver. 2.1.0.0, Janurary 25, 2024 ***
 
 **** Maximum log-likelihood: -6.27126, number of changed genotypes: 2
 Computed log-lielihood from changed genotypes: -6.27126
@@ -42,10 +45,7 @@ ScisTree2 is essentially a faster and also somewhat more accurate ScisTree. Some
 
 There are options that are new to ScisTree2.
 
-* -s: turn on SPR local search. Example: "./scistree -s example-input.dat". This performs SPR local search which is slower than the default NNI search, but is usually more accurate.
-* -S: turn on exhaustive SPR local search. This is an even more accurate but slower SPR local search. Use this mode only when the data is not too large (say less than 500 cells).
-* -u: turn on subtree re-rooting (SRR) local search. This is a new type of local search of tree space, which can lead somewhat a little more accurate trees.
-* -x: run faster but usually a little less accurate local search.
+* -s: turn on SPR local search. Example: "./scistree -s example-input.dat". This performs SPR local search which is somewhat slower than the default NNI search, but is usually more accurate. Our tests show that the SPR mode can run for data with as many as 10,000 cells.
 
 # Contact
 Post your issues here inside GitHub repositary if you have questions/issues.
