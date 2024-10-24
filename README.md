@@ -29,15 +29,15 @@ The main change is about speed and accuracy. ScisTree2 is order of mangnitude fa
 # How to use ScisTree2?
 First, you should understand some basics about ScisTree2. I would recommend to read the user mannual of the orogianl ScisTree: https://github.com/yufengwudcs/ScisTree/blob/master/ScisTree-UserManual.pdf
 
-The first thing to use ScisTree2 is to prepare the input. ScisTree2 uses the same data format as ScisTree1. Here is the content of example-input.dat:
+The first thing to use ScisTree2 is to prepare the input. ScisTree2 uses the same data format as ScisTree1. Here is the content of triv4-paper-1.dat:
 
-HAPLOID 6 5
-0.01 0.6 0.08 0.8 0.7
-0.8 0.02 0.7 0.01 0.3
-0.02 0.8 0.02 0.8 0.9
-0.9 0.9 0.8 0.8 0.02
-0.01 0.8 0.01 0.8 0.9
-0.05 0.02 0.7 0.05 0.9
+HAPLOID 6 5  \\
+0.01 0.6 0.08 0.8 0.7   \\  
+0.8 0.02 0.7 0.01 0.3   \\
+0.02 0.8 0.02 0.8 0.9   \\
+0.9 0.9 0.8 0.8 0.02   \\
+0.01 0.8 0.01 0.8 0.9   \\
+0.05 0.02 0.7 0.05 0.9  \\
 
 * Explanations. HAPLOID: specify binary input (at the moment this is the only format supported). 6: number of SNV sites; 5: number of cells; each following row: the probability of the five cells being zero (wild-type).
 
