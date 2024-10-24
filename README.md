@@ -54,6 +54,14 @@ HAPLOID 6 5
 
 ScisTree2 is essentially a faster and also somewhat more accurate ScisTree. Some features from the original ScisTree (version 1) are not supported in the current implementaiton of ScisTree2. These include: (i) ternary data input: ScisTree2 only supports binary data as of now; (ii) parameter imputation and doublet imputation. I haven't got chance to upgrade these features. For the moment, ScisTree2 is dedicated for cell lineage tree inference.
 
+The following options can be useful.
+
+	 -e                Output mutation tree (may not be binary tree) from called genotypes branch labels.
+  
+	 -e0               Output mutation tree but don't output labels (for visualizing large trees).
+  
+	 -q                Use NNI local tree search (NNI is faster but less accurate). By default, ScisTree2 uses SPR local search. Our experience shows the default SPR search is usually very fast. Still, you can try the NNI local search if you want.
+
 There are options that are new to ScisTree2.
 
 * -T <num of threads>:  ScisTree2 now supports multi-threading. 
