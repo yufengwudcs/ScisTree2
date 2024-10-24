@@ -1,5 +1,5 @@
 # ScisTree2
-Fast cell lineage tree reconstruction for large single cell DNA sequencing data.  
+Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data.  
 
 Current version: v2.2.0.0. Released: October 24, 2024.
 
@@ -15,15 +15,16 @@ Check if ScisTree2 is ready to run by typing: "./scistree". You should see some 
 Now type: "./scistree example-input.dat"
 You should see the following output:
 
-*** SCISTREE ver. 2.1.0.0, Janurary 25, 2024 ***
+*** SCISTREE ver. 2.2.0.0, October 24, 2024 ***
 
+Called genotypes output to file: Test/triv4-paper-1.txt.genos.imp
 **** Maximum log-likelihood: -6.27126, number of changed genotypes: 2
 Computed log-lielihood from changed genotypes: -6.27126
 Constructed single cell phylogeny: (((1,3),(2,4)),5)
 Elapsed time = 0 seconds.
 
 # What is new about ScisTree2 over ScisTree1?
-The main change is about speed. ScisTree2 is order of mangnitude faster than ScisTree1. ScisTree2 supports multi-threading while ScisTree1 doesn't. More importantly, ScisTree2 implements faster and also possibly more accurate tree search algorithms. Our tests show that ScisTree2 can infer cell lineage tree from data with 10,000 cells (and say 10,000 single nucleiotide variant or SNV sites). 
+The main change is about speed and accuracy. ScisTree2 is order of mangnitude faster than ScisTree1. ScisTree2 supports multi-threading while ScisTree1 doesn't. More importantly, ScisTree2 implements faster and also possibly more accurate tree search algorithms. By default, ScisTree2 performs the subtree prune and regraft (SPR) local search, while ScisTree1 performs neareast neighbor interchange (NNI) search. The SPR local search is usually more accurate than the NNI search. Our tests show that ScisTree2 can infer cell lineage tree from data with 10,000 cells (and say 10,000 single nucleiotide variant or SNV sites) while being more accurate in both cell lineage tree and genotype calling. 
 
 # How to use ScisTree2?
 First, you should understand some basics about ScisTree2. I would recommend to read the user mannual of the orogianl ScisTree: https://github.com/yufengwudcs/ScisTree/blob/master/ScisTree-UserManual.pdf
@@ -44,7 +45,7 @@ ScisTree2 is essentially a faster and also somewhat more accurate ScisTree. Some
 
 There are options that are new to ScisTree2.
 
-* -s: turn on SPR local search. Example: "./scistree -s example-input.dat". This performs SPR local search which is somewhat slower than the default NNI search, but is usually more accurate. Our tests show that the SPR mode can run for data with as many as 10,000 cells.
+* -T <num of threads>:  ScisTree2 now supports multi-threading. 
 
 # Contact
 Post your issues here inside GitHub repositary if you have questions/issues.
