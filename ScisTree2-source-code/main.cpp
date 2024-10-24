@@ -52,7 +52,7 @@ static void Usage()
     //cout << "\t -u                turn on subtree-rerooting search (this can be a little slower)\n";
     //cout << "\t -I                run tree search iteratively (this can be a little slower)\n";
     //cout << "\t -x                run tree search faster (this may somewhat reduce the accuracy)\n";
-    cout << "\t -o <output-file>  Set output file (used for mutation tree output (in GML) format; should have suffix .gml (default: mutation-tree.gml)\n";
+    //cout << "\t -o <output-file>  Set output file (used for mutation tree output (in GML) format; should have suffix .gml (default: mutation-tree.gml)\n";
     //cout << "\t -t <threshold>    Discard somewhat ambigous genotyeps when constructing intial trees: \n\t\t\t genotypes discarded if the prob. of alternative genotypes is less than <threshold> \n\t\t\t(default is 0, i.e. use all genotypes)\n";
 #if 0  // not supported in this version
     cout << "\t -f <initial-trees-file>     Perform local search from the list of trees (in Newick format, one tree per line) instead of constructing initial trees by ScisTree\n";
