@@ -12,15 +12,19 @@ Download the source code from GitHub repository. Decompress it if you download a
 
 Check if ScisTree2 is ready to run by typing: "./scistree". You should see some output about the basic usage of ScisTree2. 
 
-Now type: "./scistree example-input.dat"
+Now type: "./scistree triv4-paper-1.txt"
 You should see the following output:
 
-*** SCISTREE ver. 2.2.0.0, October 24, 2024 ***
+*** SCISTREE ver. 2.2.0.0, October 24, 2024 ***   
 
 Called genotypes output to file: Test/triv4-paper-1.txt.genos.imp
+
 **** Maximum log-likelihood: -6.27126, number of changed genotypes: 2
+
 Computed log-lielihood from changed genotypes: -6.27126
+
 Constructed single cell phylogeny: (((1,3),(2,4)),5)
+
 Elapsed time = 0 seconds.
 
 # What is new about ScisTree2 over ScisTree1?
