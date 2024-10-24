@@ -3,7 +3,7 @@ Fast cell lineage tree reconstruction for large single cell data.
 
 Current version: v2.1.0.0. Released: January 25, 2024.
 
-Software accompanyment for "ScisTree2: Accurate Cell Lineage Tree Inference for Tens of Thousands of Cells from Noisy Single Cell Data", Haotian Zhang, Teng Gao, Yiming Zhang, Peter Kharchenko and Yufeng Wu, submitted for publication, 2024.
+Software accompanyment for "ScisTree2: An Improved Method for Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single Cell Data", Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, submitted for publication, 2024.
 
 This is an enhanced version of Scistree1 (Wu, Accurate and efficient cell lineage tree inference from noisy single cell data: the maximum likelihood perfect phylogeny approach, Bioinformatics, 2020). 
 
