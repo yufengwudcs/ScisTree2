@@ -66,5 +66,8 @@ There are options that are new to ScisTree2.
 
 * -T <num of threads>:  ScisTree2 now supports multi-threading. 
 
+# Paper Data Availability
+All simulated data, real data(HGSOC), and scirpts used to reproduce the results in paper "ScisTree2: An Improved Method for Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single Cell Data. 10.1101/2024.11.08.622704. Zhang, H & Zhang, Y & Gao, T & Wu, Y. (2024)." can be found in Github Release.
+
 # Contact
 Post your issues here inside GitHub repositary if you have questions/issues.
