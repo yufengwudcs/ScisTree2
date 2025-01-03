@@ -894,13 +894,13 @@ void ScistFastSPRLocalSearch :: InitM0TblMT()
 {
 //cout << "InitM0TblMT:\n";
     int numItems = GetNumSites();
-    int blkSize = numItems/this->numThreads;
     int blkStart = 0;
     int numThreadsUse = this->numThreads;
     if( this->numThreads > GetNumSites() )
     {
         numThreadsUse = GetNumSites();
     }
+    int blkSize = numItems/numThreadsUse;
     vector<thread *> listPtrThreads;
     for(int t=0; t<numThreadsUse; ++t)
     {
@@ -909,6 +909,7 @@ void ScistFastSPRLocalSearch :: InitM0TblMT()
         {
             blkEnd = numItems-1;
         }
+        // cout << "blkStart: " << blkStart << ", blkEnd: " << blkEnd << " ,blkStart" << blkSize << ", numThread" << numThreads << endl;
         YW_ASSERT_INFO(blkEnd >= blkStart, "WRONG345");
         // start thread
         //thread *pthr = new thread(UtilsInitM0Tbl, this, &mtree, blkStart, blkEnd, &tblQ, &tblM0, &tblM0a, &(this->genosInput), &tblM1, &tblM2, &tblM10, &tblM8, &tblM9, &tblM11 );
@@ -1925,13 +1926,13 @@ double ScistFastSPRLocalSearchLoop :: ScoreTreeMulti(MarginalTree &mtree, ScistP
     //probTree.PrepareProbMaxQ();
     
     int numItems = genosInputUse.GetNumSites();
-    int blkSize = numItems/this->numThreads;
     int blkStart = 0;
     int numThreadsUse = this->numThreads;
     if( this->numThreads > genosInputUse.GetNumSites() )
     {
         numThreadsUse = genosInputUse.GetNumSites();
     }
+    int blkSize = numItems/numThreadsUse;
     vector<thread *> listPtrThreads;
     vector<double> listProbOut( numThreadsUse );
     for(int t=0; t<numThreadsUse; ++t)
@@ -2995,13 +2996,13 @@ void ScistFastRerootLocalSearch :: InitM1TblMT()
     }
 
     int numItems = GetNumSites();
-    int blkSize = numItems/this->numThreads;
     int blkStart = 0;
     int numThreadsUse = this->numThreads;
     if( this->numThreads > GetNumSites() )
     {
         numThreadsUse = GetNumSites();
     }
+    int blkSize = numItems/numThreadsUse;
     vector<thread *> listPtrThreads;
     for(int t=0; t<numThreadsUse; ++t)
     {
