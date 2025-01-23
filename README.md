@@ -64,7 +64,7 @@ The following options can be useful.
 
 There are options that are new to ScisTree2.
 
-* -T <num of threads>:  ScisTree2 now supports multi-threading. 
+* -T num-of-threads:  ScisTree2 now supports multi-threading. 
 
 ## To learn more about ScisTree2, see our [Scistree2 Tutorial](https://github.com/yufengwudcs/ScisTree2/blob/main/Scistree2_Tutorial.ipynb).
 
