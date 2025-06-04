@@ -68,6 +68,8 @@ There are options that are new to ScisTree2.
 
 * -T num-of-threads:  ScisTree2 now supports multi-threading. 
 
+## You may also read the ScisTree2's User Manual, which is in PDF format and is distributed as part of ScisTree2. 
+
 ## To learn more about ScisTree2, see our [Scistree2 Tutorial](https://github.com/yufengwudcs/ScisTree2/blob/main/Scistree2_Tutorial.ipynb).
 
 # Paper Data Availability
