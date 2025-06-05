@@ -4,3 +4,4 @@
 build/
 *.egg-info/
 test.py
+scistree2/bin
