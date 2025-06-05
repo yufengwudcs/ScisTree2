@@ -5,3 +5,4 @@ build/
 *.egg-info/
 test.py
 scistree2/bin
+scistree2/__pycache__/
