@@ -1,14 +1,17 @@
 import numpy as np
 
 
-def genotype_probability(reads, ado=0.2, seqerr=0.01, posterior=True):
+def genotype_probability(reads, ado=0.2, seqerr=0.01, posterior=True, af=None):
     reads = reads.astype(float)
     ref_counts = reads[:, :, 0]
     alt_counts = reads[:, :, 1]
     l00, l01, l11 = likelihood_GATK(ref_counts, alt_counts, ado, seqerr)
     if posterior:
-        af = allele_frequency(l00, l01, l11)
-        prob = posterior_probability_GATK(l00, l01, l11, prior_ref=af)
+        if af is None:
+            af = allele_frequency(l00, l01, l11)
+            prob = posterior_probability_GATK(l00, l01, l11, prior_ref=af)
+        else:
+            prob = posterior_probability_GATK(l00, l01, l11, prior_ref=af)
     else:
         prob = posterior_probability_GATK(l00, l01, l11)
     return prob
