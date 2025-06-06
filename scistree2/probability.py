@@ -2,6 +2,7 @@ import numpy as np
 
 
 def genotype_probability(reads, ado=0.2, seqerr=0.01, posterior=True):
+    reads = reads.astype(float)
     ref_counts = reads[:, :, 0]
     alt_counts = reads[:, :, 1]
     l00, l01, l11 = likelihood_GATK(ref_counts, alt_counts, ado, seqerr)
@@ -42,6 +43,8 @@ xxx
 def likelihood_GATK(ref_counts, alt_counts, ado=0.2, seqerr=0.01):
     # Q-phred score = -10 * log10(p)
     p00, p01, p10, p11 = np.log(1-seqerr), np.log(seqerr), np.log(seqerr), np.log(1-seqerr)
+    z = ref_counts * p00 + alt_counts * p01
+    # print(type(z))
     l00 = np.exp(ref_counts * p00 + alt_counts * p01)
     l01 = (1 - ado) * np.exp(ref_counts * np.log(0.5 * np.exp(p00) + 0.5 * np.exp(p10)) + alt_counts * np.log(0.5 * np.exp(p01) + 0.5 * np.exp(p11))) \
             + (0.5 * ado) * (np.exp(ref_counts * p00 + alt_counts * p10) + np.exp(ref_counts * p10 + alt_counts * p11))
