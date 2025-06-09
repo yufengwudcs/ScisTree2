@@ -2,10 +2,10 @@
   <img src="img/logo.jpg" alt="SciSTree2 Logo" width="200">
 </p>
 
-<h3 align="center">ScisTree2: Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data.</h3>
+<h3 align="center">Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data.</h3>
 
 ## Introduction
-Software accompanyment for *"Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search", Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, manuscript, 2025*. The preprint of this paper is at: https://www.biorxiv.org/content/10.1101/2024.11.08.622704v1 (under the title "ScisTree2: An Improved Method for Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single Cell Data"). This work was presented in the RECOMB 2025 conference. The ScisTree2 paper is currently under review.
+Software accompanyment for [*Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search*, Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, manuscript, 2025](https://www.biorxiv.org/content/10.1101/2024.11.08.622704v1) (under the title *"ScisTree2: An Improved Method for Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single Cell Data"*). This work was presented in the RECOMB 2025 conference. The ScisTree2 paper is currently under review.
 
 This is an enhanced version of ScisTree (*Accurate and efficient cell lineage tree inference from noisy single cell data: the maximum likelihood perfect phylogeny approach, Bioinformatics, 2020*).
 
