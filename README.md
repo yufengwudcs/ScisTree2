@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/logo.jpg" alt="SciSTree2 Logo" width="200">
+  <img src="img/logo.png" alt="SciSTree2 Logo" width="300">
 </p>
 
 <h3 align="center">Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data.</h3>
