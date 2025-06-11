@@ -2,7 +2,7 @@
   <img src="img/logo.png" alt="SciSTree2 Logo" width="200">
 </p>
 
-<h3 align="center">Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data.</h3>
+<h2 align="center">Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data.</h2>
 
 ## Introduction
 Software accompanyment for [*Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search*, Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, manuscript, 2025](https://www.biorxiv.org/content/10.1101/2024.11.08.622704v1) (under the title *"ScisTree2: An Improved Method for Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single Cell Data"*). This work was presented in the RECOMB 2025 conference. The ScisTree2 paper is currently under review.
@@ -13,12 +13,9 @@ This is an enhanced version of ScisTree (*Accurate and efficient cell lineage tr
 
 To use SciSTree2, you will need the following tools and libraries installed:
 
-*   **Python**: Version 3.6 or higher.
+*   **python & pip**: Version 3.6 or higher.
 *   **g++**: A C++ compiler (for building the backend).
 *   **make**: The `make` utility (for building the backend).
-*   **Python Packages**:
-    *   `numpy`
-    *   `pptree`
 
 ## Installation
 
@@ -33,11 +30,11 @@ To use SciSTree2, you will need the following tools and libraries installed:
     ```bash
     pip install .
     ```
-    Alternatively, you can use `python setup.py install`:
+    <!-- Alternatively, you can use `python setup.py install`:
     ```bash
     python setup.py install
     ```
-    The `setup.py` script is configured to first build the C++ executable (similar to running `make` in the `src` directory) and then include it in the Python package.
+    The `setup.py` script is configured to first build the C++ executable (similar to running `make` in the `src` directory) and then include it in the Python package. -->
 
 3.  **(Optional) Manual C++ backend build (for testing/development):**
     If you want to build or test the C++ backend (`scistree`) independently, you can navigate to the `src` directory and compile it using `make`:
@@ -47,7 +44,7 @@ To use SciSTree2, you will need the following tools and libraries installed:
     # You can then test it directly, e.g., ./scistree triv4-paper-1.txt
     cd ..
     ```
-    This step is not required for the Python package installation if using `pip install .` or `python setup.py install` as described above.
+    This step is not required for the Python package installation if using `pip install .` as described above.
 
 ## Tutorial
 
