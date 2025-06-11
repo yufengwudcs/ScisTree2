@@ -42,7 +42,6 @@ To use SciSTree2, you will need the following tools and libraries installed:
     cd src
     make
     # You can then test it directly, e.g., ./scistree triv4-paper-1.txt
-    cd ..
     ```
     This step is not required for the Python package installation if using `pip install .` as described above.
 
