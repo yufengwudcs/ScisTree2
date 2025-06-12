@@ -8,7 +8,7 @@ Software accompanyment for "Large-scale Inference of Cell Lineage Trees and Geno
 This is an enhanced version of Scistree1 (Wu, Accurate and efficient cell lineage tree inference from noisy single cell data: the maximum likelihood perfect phylogeny approach, Bioinformatics, 2020). 
 
 # Getting started
-Download the source code from GitHub repository. Decompress it if you download as a zip file. Open a console window and enter the main source code directory called "ScisTree2-source-code". Type "make". That should be all you need!
+Download the source code from GitHub repository. Decompress it if you download as a zip file. Open a console window and enter the main source code directory called "src". Type "make". That should be all you need!
 
 The executable is called "scistree". You can find whether it is built by doing a "ls". 
 
