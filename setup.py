@@ -6,7 +6,7 @@ import os
 
 CPP_DIR = './src'
 PACKAGE_NAME = 'scistree2'
-
+PACKAGE_DIR = 'scistree2'
 
 class BuildWithMake(build_py):
     def run(self):
@@ -21,7 +21,7 @@ class BuildWithMake(build_py):
             print("Make failed.")
             raise e
         
-        bin_dir = os.path.join(PACKAGE_NAME, 'bin')
+        bin_dir = os.path.join(PACKAGE_DIR, 'bin')
         os.makedirs(bin_dir, exist_ok=True)
         shutil.copy(
             os.path.join(CPP_DIR, 'scistree'),
@@ -32,7 +32,7 @@ class BuildWithMake(build_py):
 setup(
     name=PACKAGE_NAME,
     version='0.1.0',
-    packages=[PACKAGE_NAME],
+    packages=[PACKAGE_DIR],
     cmdclass={'build_py': BuildWithMake},
     install_requires=[
         'numpy',
