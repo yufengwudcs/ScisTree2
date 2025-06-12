@@ -8,7 +8,7 @@ CPP_DIR = './src'
 PACKAGE_NAME = 'scistree2'
 
 
-class BuildWithCMake(build_py):
+class BuildWithMake(build_py):
     def run(self):
         self.build_cpp_with_make()
         super().run()
@@ -33,7 +33,7 @@ setup(
     name=PACKAGE_NAME,
     version='0.1.0',
     packages=[PACKAGE_NAME],
-    cmdclass={'build_py': BuildWithCMake},
+    cmdclass={'build_py': BuildWithMake},
     install_requires=[
         'numpy',
         'pptree'
