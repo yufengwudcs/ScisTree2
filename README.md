@@ -12,11 +12,11 @@ This is an enhanced version of ScisTree (*Accurate and efficient cell lineage tr
 ## Required Tools
 
 To use ScisTree2, you will need the following tools and libraries installed:
-
 *   **`python` & `pip`**: Version 3.6 or higher.
 *   **`g++`**: A C++ compiler.
 *   **`make`**: For building the backend.
 
+*Windows is not supported yet.*
 ## Installation
 
 1.  **Clone the repository:**
