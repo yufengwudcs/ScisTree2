@@ -26,10 +26,12 @@ To use SciSTree2, you will need the following tools and libraries installed:
     ```
 
 2.  **Install the Python package (includes C++ backend compilation):**
-    You can install the `scistree2` package using `pip`. This command will also compile the C++ backend automatically:
+    You can install the `scistree2` package using `pip`:
     ```bash
     pip install .
     ```
+    This command will also automatically compile the C++ backend. Once built, the executable binary file can be found in `scistree2/bin`.
+
     <!-- Alternatively, you can use `python setup.py install`:
     ```bash
     python setup.py install
