@@ -16,8 +16,9 @@ To use ScisTree2, you will need the following tools and libraries installed:
 *   **`g++`**: A C++ compiler.
 *   **`make`**: For building the backend.
 
-*Windows is not supported yet.*
-## Installation
+**We have successfully tested it on Linux, macOS, and Windows (via WSL).*
+
+## Installation/
 
 1.  **Clone the repository:**
     ```bash
@@ -32,6 +33,7 @@ To use ScisTree2, you will need the following tools and libraries installed:
     ```
     This command will also automatically compile the C++ backend. Once built, the executable binary file can be found in `scistree2/bin`.
 
+    **We recommend that users create a virtual environment using either `conda` or `venv` to comply with [PEP 668](https://peps.python.org/pep-0668/).*
     <!-- Alternatively, you can use `python setup.py install`:
     ```bash
     python setup.py install
