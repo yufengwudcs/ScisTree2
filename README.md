@@ -13,9 +13,9 @@ This is an enhanced version of ScisTree (*Accurate and efficient cell lineage tr
 
 To use SciSTree2, you will need the following tools and libraries installed:
 
-*   **python & pip**: Version 3.6 or higher.
-*   **g++**: A C++ compiler (for building the backend).
-*   **make**: The `make` utility (for building the backend).
+*   **`python` & `pip`**: Version 3.6 or higher.
+*   **`g++`**: A C++ compiler.
+*   **`make`**: For building the backend.
 
 ## Installation
 
