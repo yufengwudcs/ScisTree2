@@ -51,7 +51,7 @@ To use SciSTree2, you will need the following tools and libraries installed:
 
 A detailed tutorial on how to use SciSTree2 is available as a Jupyter Notebook in the `tutorials/` directory:
 
-*   **[SciSTree2 Tutorial](tutorials/Scistree2_Tutorial.ipynb)**
+*   **[ScisTree2 Tutorial](tutorials/Scistree2_Tutorial.ipynb)**
 
 The tutorial covers:
 *   Getting started with SciSTree2.
