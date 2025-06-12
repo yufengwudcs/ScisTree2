@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/logo.png" alt="SciSTree2 Logo" width="200">
+  <img src="img/logo.png" alt="ScisTree2 Logo" width="200">
 </p>
 
 <h2 align="center">Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data.</h2>
@@ -11,7 +11,7 @@ This is an enhanced version of ScisTree (*Accurate and efficient cell lineage tr
 
 ## Required Tools
 
-To use SciSTree2, you will need the following tools and libraries installed:
+To use ScisTree2, you will need the following tools and libraries installed:
 
 *   **`python` & `pip`**: Version 3.6 or higher.
 *   **`g++`**: A C++ compiler.
@@ -26,11 +26,11 @@ To use SciSTree2, you will need the following tools and libraries installed:
     ```
 
 2.  **Install the Python package (includes C++ backend compilation):**
-    You can install the `scistree2` package using `pip`:
+    You can install the `ScisTree2` package using `pip`:
     ```bash
     pip install .
     ```
-    This command will also automatically compile the C++ backend. Once built, the executable binary file can be found in `scistree2/bin`.
+    This command will also automatically compile the C++ backend. Once built, the executable binary file can be found in `ScisTree2/bin`.
 
     <!-- Alternatively, you can use `python setup.py install`:
     ```bash
@@ -49,12 +49,12 @@ To use SciSTree2, you will need the following tools and libraries installed:
 
 ## Tutorial
 
-A detailed tutorial on how to use SciSTree2 is available as a Jupyter Notebook in the `tutorials/` directory:
+A detailed tutorial on how to use ScisTree2 is available as a Jupyter Notebook in the `tutorials/` directory:
 
-*   **[ScisTree2 Tutorial](tutorials/Scistree2_Tutorial.ipynb)**
+*   **[ScisTree2 Tutorial](tutorials/ScisTree2_Tutorial.ipynb)**
 
 The tutorial covers:
-*   Getting started with SciSTree2.
+*   Getting started with ScisTree2.
 *   Running inference with probabilistic genotype matrices.
 *   Running inference with raw read data.
 *   Visualizing trees.
