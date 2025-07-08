@@ -23,7 +23,7 @@ To use ScisTree2, you will need the following tools and libraries installed:
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/yufengwudcs/ScisTree2.git
-    cd ScisTree2
+    cd scistree2
     ```
 
 2.  **Install the Python package (includes C++ backend compilation):**
