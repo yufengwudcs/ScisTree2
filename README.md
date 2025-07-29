@@ -59,6 +59,7 @@ The tutorial covers:
 *   Getting started with ScisTree2.
 *   Running inference with probabilistic genotype matrices.
 *   Running inference with raw read data.
+*   Running inference with VCF file.
 *   Visualizing trees.
 *   Evaluating results using various metrics.
 
