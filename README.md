@@ -47,7 +47,7 @@ To use ScisTree2, you will need the following tools and libraries installed:
     make
     # You can then test it directly, e.g., ./scistree triv4-paper-1.txt
     ```
-    This step is not required for the Python package installation if using `pip install .` as described above.
+    This step is not required for the Python package installation if using `pip install .` as described above. See more details at [C++ README](src/README.md)
 
 ## Tutorial
 
