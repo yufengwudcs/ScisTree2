@@ -5,7 +5,7 @@ from . import metric
 from . import probability
 from . import treeutils as util
 from .scistree import ScisTree2
-
+from .reader import read_vcf
 
 
 
