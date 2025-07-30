@@ -66,6 +66,9 @@ The tutorial covers:
 The example data used in the tutorial can be found in the `tutorials/data/` directory.
 
 ## Using ScisTree2 by mannually building the C++ code.
+
+If you prefer running ScisTree2 from console directly, follow the instructions below.
+
 Download the source code from GitHub repository. Decompress it if you download as a zip file. Open a console window and enter the main source code directory called "src". Type "make". That should be all you need!
 
 The executable is called "scistree". You can find whether it is built by doing a "ls". 
