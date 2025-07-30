@@ -18,7 +18,7 @@ To use ScisTree2, you will need the following tools and libraries installed:
 
 **We have successfully tested it on Linux, macOS, and Windows (via WSL).*
 
-## Installation/
+## Installation
 
 1.  **Clone the repository:**
     ```bash
@@ -65,7 +65,7 @@ The tutorial covers:
 
 The example data used in the tutorial can be found in the `tutorials/data/` directory.
 
-## Using ScisTree2 by mannually building the C++ code.
+## Using ScisTree2 by mannually building the C++ code
 
 If you prefer running ScisTree2 from console directly, follow the instructions below.
 
