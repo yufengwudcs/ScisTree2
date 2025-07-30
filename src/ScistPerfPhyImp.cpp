@@ -790,6 +790,8 @@ double ScistPerfPhyMLE :: InferFastSPR( const string &strTreeInit, std::set< std
     ScistFastSPRLocalSearchLoop optSPRLocalSearch(this->genosInput, strTreeInit);
     optSPRLocalSearch.SetNumThreads(this->numThreads);
     optSPRLocalSearch.SetVerbose(this->fVerbose);
+    extern int maxNumIters;
+    optSPRLocalSearch.SetMaxNumIters(maxNumIters);
     //optSPRLocalSearch.SetMaxHeuSPRsNum(this->maxHeuSPRNum);
     //const double FRAC_SPR = 0.5;
     optSPRLocalSearch.SetHeuristicMode(!fExactSPR, fracSPRSrc, thresSPRDropStop);

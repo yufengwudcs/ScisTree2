@@ -132,6 +132,7 @@ public:
     void SetNumThreads(int t) {numThreads = t;}
     void SetHeuristicMode(bool f, double frac, int t) { fHeu = f; heuFracSPR = frac; thresSPRDrop = t;}
     void SetVerbose(bool f) { fVerbose = f; }
+    void SetMaxNumIters(int iters) {maxIters = iters; }
     
 private:
     void FindSPRSrcLoserFrom( const std::map<int, double> &mapSrcScore, const std::set<int> &setAvoided, double frac, std::set<int> &setSrcLosers ) const;

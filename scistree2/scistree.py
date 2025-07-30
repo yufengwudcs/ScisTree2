@@ -23,11 +23,13 @@ Args:
 """
 class ScisTree2():
     def __init__(self,
-                 threads=-1, nj=False, spr=True, nni=False, iterative=False, verbose=True):
+                 threads=-1, nj=False, spr=True, nni=False, max_iter=None, verbose=True):
         self.bin_path = os.path.join(os.path.dirname(__file__), 'bin', 'scistree')
         self.nj = nj
         self.spr = spr
         self.nni = nni
+        assert max_iter >= 0, "max_iter should be positive."
+        self.max_iter = max_iter
         self.cmd = self.build_cmd(self.bin_path, threads, nj, nni, verbose)
         
     def build_cmd(self, bin_path, threads, nj, nni, verbose):
@@ -40,6 +42,9 @@ class ScisTree2():
             cmd.append('-n')
         if nni:
             cmd.append('-q')
+        if self.max_iter:
+            cmd.append('-s')
+            cmd.append(str(self.max_iter))
         return cmd 
     
     """

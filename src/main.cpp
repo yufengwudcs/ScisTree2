@@ -46,6 +46,7 @@ static void Usage()
     //cout << "\t -s <level>        Use SPR tree search (this will be slower); level: # of SPRs to allow (default is 1)\n";
     //cout << "\t -s                Use SPR local tree search (this is the default)\n";
     cout << "\t -q                Use NNI local tree search (NNI is faster but less accurate)\n";
+    cout << "\t -s  <max-num-of-iterations>                Set the maximum number of iterations during local search.\n";
     //cout << "\t -S                Turn on exhaustive SPR local tree search (this will be even slower)\n";
 //    cout << "\t -r  <f> <d>       Config how SPR runs: f between 0 and 1 (default: 0.5); the smaller, the faster but less accurate); dropStop: an integer (default: 100; the larger, the more accurate but slower)\n";
     //cout << "\t -r  <f> <d>       Config SPR: f from 0 and 1 (default: 0.5); d: integer (default: 100)\n";
@@ -87,6 +88,7 @@ static bool fOutPPEdgeLabel = false;
 static bool fOutputLabel=true;
 static bool fFastTree = false;
 static bool fIterative = false;
+int maxNumIters = 1000;
 //static vector<string> listInitTrees;
 // GLobal variables
 
@@ -240,6 +242,16 @@ static bool CheckArguments(int argc, char **argv)
             ++i;
             sscanf(argv[i], "%d", &numThreads);
             cout << "Number of threads: set to " << numThreads << endl;
+        }
+        else if( argv[i][0] == '-' && argv[i][1] == 's' )
+        {
+            //YW_ASSERT_INFO( i <argc-1, "Test code" );
+            //fTest = true;
+            //cout << "Test SPR local search " << endl;
+            YW_ASSERT_INFO( i <argc-1, "Check input" );
+            ++i;
+            sscanf(argv[i], "%d", &maxNumIters);
+            cout << "Maximum number of iterations: set to " << maxNumIters << endl;
         }
 #if 0
         else if( argv[i][0] == '-' && argv[i][1] == 'I' )
@@ -580,7 +592,8 @@ static void TestCode( const char *filename )
 //const char *CODE_VER_INFO ="*** SCISTREE ver. 2.1.0.0, Janurary 22, 2024 ***";
 //const char *CODE_VER_INFO ="*** SCISTREE ver. 2.1.1.0, Feburary 2, 2024 ***";
 //const char *CODE_VER_INFO ="*** SCISTREE ver. 2.1.1.1, Feburary 5, 2024 ***";
-const char *CODE_VER_INFO ="*** SCISTREE ver. 2.2.0.0, October 24, 2024 ***";
+//const char *CODE_VER_INFO ="*** SCISTREE ver. 2.2.0.0, October 24, 2024 ***";
+const char *CODE_VER_INFO ="*** SCISTREE ver. 2.2.1.0, July 29, 2025 ***";
 
 //******************************************************************
 int main(int argc, char **argv)
