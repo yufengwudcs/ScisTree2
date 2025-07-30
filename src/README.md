@@ -1,7 +1,7 @@
 # ScisTree2
 Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data.  
 
-Current version: v2.2.0.0. Released: October 24, 2024.
+Current version: v2.2.1.0. Released: July 29, 2025.
 
 Software accompanyment for "Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search", Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, manuscript, 2025. The preprint of this paper is at: https://www.biorxiv.org/content/10.1101/2024.11.08.622704v1 (under the title "ScisTree2: An Improved Method for Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single Cell Data"). This work was presented in the RECOMB 2025 conference. The ScisTree2 paper is currently under review.
 
@@ -66,6 +66,7 @@ The following options can be useful.
 
 There are options that are new to ScisTree2.
 
-* -T num-of-threads:  ScisTree2 now supports multi-threading. 
+* -T <num-of-threads>:  ScisTree2 now supports multi-threading.
+* -s <max-num-of-iterations>: To control the running time, you can specifiy the maximum number of iterations to run. Specify a smaller number (e.g., 5) can reduce the running time (but may reduce the accuracy). Default: 1,000 iterations.
 
 #### You may also read the ScisTree2's User Manual, which is in PDF format and is distributed as part of ScisTree2. 
