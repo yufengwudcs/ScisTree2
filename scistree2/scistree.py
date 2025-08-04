@@ -56,12 +56,8 @@ class ScisTree2():
         prefix = uuid.uuid4()
         output = f'{prefix}.scistree.out'
         with open(output, 'w') as out:
-            out.write(f'HAPLOID {nsite} {ncell}')
-            for i in range(ncell):
-                out.write(f' c{i}')
-            out.write('\n')
+            out.write(f'HAPLOID\n')
             for i in range(nsite):
-                out.write(f's{i}')
                 for j in range(ncell):
                     prob = genotype_matrix[i, j]
                     out.write(f' {prob:.5f}')
@@ -124,12 +120,12 @@ class ScisTree2():
                 return nwk
         except Exception as e:
                 print('scistree running failed.')
-                # if os.path.exists(output):
-                #     os.remove(output)
+                if os.path.exists(output):
+                    os.remove(output)
                 raise e
         finally:
-            # if os.path.exists(output):
-            #     os.remove(output)
+            if os.path.exists(output):
+                os.remove(output)
             if os.path.exists(f'{output}.genos.imp'):
                 os.remove(f'{output}.genos.imp')
     """

@@ -59,8 +59,8 @@ A detailed tutorial on how to use ScisTree2 in Python is available as a Jupyter 
 
 The tutorial covers:
 *   Getting started with ScisTree2.
-*   Running inference with probabilistic genotype matrices.
-*   Running inference with raw read data.
+*   Running inference with probabilistic genotype matrices (CSV supported).
+*   Running inference with raw read data (CSV supported).
 *   Running inference with VCF file.
 *   Visualizing trees.
 *   Evaluating results using various metrics.
@@ -96,7 +96,7 @@ First, you should understand some basics about ScisTree2. I would recommend to r
 
 The first thing to use ScisTree2 is to prepare the input. ScisTree2 uses the same data format as ScisTree. Here is the content of an example(triv4-paper-1.dat):
 ```js
-HAPLOID  
+HAPLOID
 0.01 0.6 0.08 0.8 0.7   
 0.8 0.02 0.7 0.01 0.3   
 0.02 0.8 0.02 0.8 0.9   
