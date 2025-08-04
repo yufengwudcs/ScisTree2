@@ -23,7 +23,7 @@ Args:
 """
 class ScisTree2():
     def __init__(self,
-                 threads=-1, nj=False, spr=True, nni=False, max_iter=None, verbose=True):
+                 threads=-1, nj=False, spr=True, nni=False, max_iter=0, verbose=True):
         self.bin_path = os.path.join(os.path.dirname(__file__), 'bin', 'scistree')
         self.nj = nj
         self.spr = spr

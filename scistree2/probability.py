@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd 
-from .reader import read_vcf
-
+from .reader import read_vcf, read_csv
 
 class GenotypeProbability():
     def __init__(self, probs, cell_names=None, site_names=None):
@@ -42,6 +41,16 @@ def from_vcf(vcf_path, ado=0.2, seqerr=0.01, posterior=True, af=None, key='AD'):
     return from_reads(reads, ado=ado, seqerr=seqerr, posterior=posterior, af=af, cell_names=cell_names, site_names=site_names)
 
 
+def from_csv(csv_path, source='probability', ado=0.2, seqerr=0.01, posterior=True, af=None):
+    assert source in ['probability', 'read'], "source should be either 'probability' or 'read'."
+    if source == 'probability':
+        probs, cell_names, site_names = read_csv(csv_path, reads=False)
+        return from_probs(probs, cell_names, site_names)
+    else:
+        reads, cell_names, site_names = read_csv(csv_path, reads=True)
+        return from_reads(reads, ado=ado, seqerr=seqerr, posterior=posterior, af=af, cell_names=cell_names, site_names=site_names)
+
+
 def concatenate_strings(val1, val2):
     return str(val1) + "|" + str(val2)
 
@@ -67,23 +76,24 @@ def genotype_probability(reads, ado=0.2, seqerr=0.01, posterior=True, af=None):
         prob = posterior_probability_GATK(l00, l01, l11)
     return np.ma.array(prob, mask=mask).filled(fill_value=0.5)
 
-"""
- Calculate the allele frequency for each site.
-"""
+
 def allele_frequency(l00, l01, l11):
+    """
+    Calculate the allele frequency for each site.
+    """
     ml_gt = np.argmax(np.concatenate([l00[:, :, np.newaxis], l01[:, :, np.newaxis], l11[:, :, np.newaxis]], axis=-1), axis=-1)
     af = np.mean(ml_gt, axis=-1) / 2
     af = af[:, np.newaxis]
     return 1 - af
     
 
-"""
-Calculate the posterior probability of each SNV being a true positive.
-
-We use GATK likelihood with ADO included as described in CellCoal manual (https://dapogon.github.io/cellcoal/cellcoal.manual.v1.1.html#537_genotype_likelihoods)
-    P(D|G={g_1, g_2}) = (1-ado)\prod_{i=1}^{r}P(b_i|G={g_1, g_2}) + 0.5*ado[\prod_{i=1}^{r}P(b_i|G={g_1}) + \prod_{i=1}^{r}P(b_i|G={g_2})]
-"""
 def posterior_probability_GATK(l00, l01, l11, prior_ref=0.5, margin=1e-5):
+    """
+    Calculate the posterior probability of each SNV being a true positive.
+
+    We use GATK likelihood with ADO included as described in CellCoal manual (https://dapogon.github.io/cellcoal/cellcoal.manual.v1.1.html#537_genotype_likelihoods)
+        P(D|G={g_1, g_2}) = (1-ado)\prod_{i=1}^{r}P(b_i|G={g_1, g_2}) + 0.5*ado[\prod_{i=1}^{r}P(b_i|G={g_1}) + \prod_{i=1}^{r}P(b_i|G={g_2})]
+    """
     g00 = prior_ref**2 * l00
     g01 = 2*(1 - prior_ref) * prior_ref * l01
     g11 = (1 - prior_ref)**2 * l11
