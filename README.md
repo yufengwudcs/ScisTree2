@@ -112,8 +112,7 @@ HAPLOID 6 5
 
 * Explanations. HAPLOID: specify binary input (at the moment this is the only format supported). 6: number of SNV sites; 5: number of cells; each following row: the probability of the five cells being zero (wild-type).
 * Please note: at the first row, only the keyword "HAPLOID" is required. The following two numbers can be **ommitted** (these numbers were used in earlier versions of ScisTree2). Moreover, you can specifiy the cell names in the first row. For example, you can replace the above first row by "HAPLOID 6 5 c1 c2 c3 c4 c5". This way, you can use your own cell names instead of the default 1/2/3... Please note: the cell names start at the 4th field of the first row.
-
-**Be careful: the rows are for the SNV sites and the columns are for the cells. Don't get this wrong.**
+* **Be careful: the rows are for the SNV sites and the columns are for the cells. Don't get this wrong.**
 
 ScisTree2 is essentially a faster and also somewhat more accurate ScisTree. Some features from the original ScisTree (version 1) are not supported in the current implementaiton of ScisTree2. These include: (i) ternary data input: ScisTree2 only supports binary data as of now; (ii) parameter imputation and doublet imputation. I haven't got chance to upgrade these features. For the moment, ScisTree2 is dedicated for cell lineage tree inference.
 
