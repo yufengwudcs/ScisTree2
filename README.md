@@ -88,8 +88,9 @@ Elapsed time = 0 seconds.
 * `-e`: Output a mutation tree (which may not be a binary tree) with branch labels from the called genotypes.
 * `-e0`: Output a mutation tree without branch labels, which is useful for visualizing large trees.
 * `-q`: Use NNI (Nearest Neighbor Interchange) for local tree search. NNI is faster but less accurate. By default, ScisTree2 uses SPR (Subtree Pruning and Regrafting) local search, which we have found to be very fast.
-* `-T <<num-of-threads> >`: Specify the number of threads for multi-threading support.
-* `-s <num-of-iterations>`: Set the maximum number of iterations to control the running time. A smaller number (e.g., 5) will reduce the running time but may also reduce accuracy. **Default:** 1,000 iterations.
+* `-T <num-of-threads>`: Specify the number of threads for multi-threading support.
+* `-s <num-of-iterations>`: Set the maximum number of iterations to control the running time. A smaller number (e.g., 5) will reduce the running time but may also reduce accuracy. Default: 1,000 iterations.
+
 You may also read the ScisTree2's User Manual, which is in PDF format and is distributed as part of ScisTree2. 
 #### Data format of ScisTree2 in C++?
 First, you should understand some basics about ScisTree2. I would recommend to read the [user mannual](https://github.com/yufengwudcs/ScisTree/blob/master/ScisTree-UserManual.pdf) of the orgianl ScisTree.
@@ -112,7 +113,7 @@ HAPLOID
 ScisTree2 is essentially a faster and also somewhat more accurate ScisTree. Some features from the original ScisTree (version 1) are not supported in the current implementaiton of ScisTree2. These include: (i) ternary data input: ScisTree2 only supports binary data as of now; (ii) parameter imputation and doublet imputation. I haven't got chance to upgrade these features. For the moment, ScisTree2 is dedicated for cell lineage tree inference.
 
 ## What is new about ScisTree2 over ScisTree?
-The main change is about speed and accuracy. ScisTree2 is order of mangnitude faster than ScisTree1. ScisTree2 supports multi-threading while ScisTree1 doesn't. More importantly, ScisTree2 implements faster and also possibly more accurate tree search algorithms. By default, ScisTree2 performs the subtree prune and regraft (SPR) local search, while ScisTree1 performs neareast neighbor interchange (NNI) search. The SPR local search is usually more accurate than the NNI search. Our tests show that ScisTree2 can infer cell lineage tree from data with 10,000 cells (and say 10,000 single nucleiotide variant or SNV sites) while being more accurate in both cell lineage tree and genotype calling. 
+The main change is about speed and accuracy. ScisTree2 is order of mangnitude faster than ScisTree. ScisTree2 supports multi-threading while ScisTree doesn't. More importantly, ScisTree2 implements faster and also possibly more accurate tree search algorithms. By default, ScisTree2 performs the subtree prune and regraft (SPR) local search, while ScisTree performs neareast neighbor interchange (NNI) search. The SPR local search is usually more accurate than the NNI search. Our tests show that ScisTree2 can infer cell lineage tree from data with 10,000 cells (and say 10,000 single nucleiotide variant or SNV sites) while being more accurate in both cell lineage tree and genotype calling. 
 
 ## Data Availability 
 
