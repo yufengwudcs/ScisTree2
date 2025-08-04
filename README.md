@@ -76,7 +76,7 @@ Check if ScisTree2 is ready to run by typing: `./scistree`, you should see some 
 Now type: 
 `./scistree triv4-paper-1.txt`, you should see the following output:
 ```text
-*** SCISTREE ver. 2.2.0.0, October 24, 2024 ***   
+*** SCISTREE ver. 2.2.2.0, August 4, 2025 *** 
 Called genotypes output to file: triv4-paper-1.txt.genos.imp
 **** Maximum log-likelihood: -6.27126, number of changed genotypes: 2
 Computed log-lielihood from changed genotypes: -6.27126
