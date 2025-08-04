@@ -74,8 +74,7 @@ The executable is called `scistree`.
 Check if ScisTree2 is ready to run by typing: `./scistree`, you should see some output about the basic usage of ScisTree2. 
 
 Now type: 
-`./scistree triv4-paper-1.txt`
-You should see the following output:
+`./scistree triv4-paper-1.txt`, you should see the following output:
 ```text
 *** SCISTREE ver. 2.2.0.0, October 24, 2024 ***   
 Called genotypes output to file: triv4-paper-1.txt.genos.imp
@@ -92,7 +91,7 @@ Elapsed time = 0 seconds.
 * `-T <<num-of-threads> >`: Specify the number of threads for multi-threading support.
 * `-s <num-of-iterations>`: Set the maximum number of iterations to control the running time. A smaller number (e.g., 5) will reduce the running time but may also reduce accuracy. **Default:** 1,000 iterations.
 You may also read the ScisTree2's User Manual, which is in PDF format and is distributed as part of ScisTree2. 
-#### Data format of ScisTree2?
+#### Data format of ScisTree2 in C++?
 First, you should understand some basics about ScisTree2. I would recommend to read the [user mannual](https://github.com/yufengwudcs/ScisTree/blob/master/ScisTree-UserManual.pdf) of the orgianl ScisTree.
 
 The first thing to use ScisTree2 is to prepare the input. ScisTree2 uses the same data format as ScisTree. Here is the content of an example(triv4-paper-1.dat):

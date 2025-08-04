@@ -124,12 +124,12 @@ class ScisTree2():
                 return nwk
         except Exception as e:
                 print('scistree running failed.')
-                if os.path.exists(output):
-                    os.remove(output)
+                # if os.path.exists(output):
+                #     os.remove(output)
                 raise e
         finally:
-            if os.path.exists(output):
-                os.remove(output)
+            # if os.path.exists(output):
+            #     os.remove(output)
             if os.path.exists(f'{output}.genos.imp'):
                 os.remove(f'{output}.genos.imp')
     """

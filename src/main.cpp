@@ -314,8 +314,58 @@ static bool CheckArguments(int argc, char **argv)
 }
 
 // input handling
+// a simple utility
+static void CountsInFile(const char *filename, int &numCells, int &numSites)
+{
+    ifstream inFile(filename);
+    if(!inFile)
+    {
+        cout << "Can not open "<< filename <<endl;
+        YW_ASSERT_INFO( false, "Stop");
+    }
+    // omit the first row or any row start with a / or empty
+    string line;
+    numSites = 0;
+    numCells = 0;
+    bool fFirstRow = true;
+    while (std::getline(inFile, line))
+    {
+        // inc #sites for each valid row
+        if(line.length()>0 && line[0] != '/' )
+        {
+            if( fFirstRow == false )
+            {
+                ++numSites;
+                
+                // now figure out #cells for from the first row
+                if( numCells == 0 )
+                {
+                    //
+                    std::istringstream iss(line);
+                    std::string field;
+
+                    while (iss >> field) { // Extracts fields separated by whitespace
+                        numCells++;
+                    }
+                    
+                }
+            }
+            
+        }
+        
+        fFirstRow = false;
+    }
+}
+
+// main input handling code
 static ScistGenGenotypeMat* ReadsInput(const char *filename )
 {
+    // figure out #cells/sites
+    //int numCells = 0, numSites = 0;
+    CountsInFile(filename, numSCs, numSites);
+    cout << "#cells: " << numSCs << ", #sites: " << numSites << endl;
+    YW_ASSERT_INFO(numSites >0 && numSCs > 0, "Site and single cells numbers: Cannot be zeros");
+    
     //
     ifstream inFile(filename);
     if(!inFile)
@@ -323,6 +373,7 @@ static ScistGenGenotypeMat* ReadsInput(const char *filename )
         cout << "Can not open "<< filename <<endl;
         YW_ASSERT_INFO( false, "Stop");
     }
+    
     ScistGenGenotypeMat *pMatIn = NULL;
     while( inFile.eof() == false )
     {
@@ -340,7 +391,16 @@ static ScistGenGenotypeMat* ReadsInput(const char *filename )
             is >> strKey;
             if( strKey == "HAPLOTYPES" || strKey == "HAPLOID" )
             {
-                is >> numSites >> numSCs;
+                //is >> numSites >> numSCs;
+                int tns, tsc;
+                if( is.eof() == false )
+                {
+                    is >> tns;
+                }
+                if( is.eof() == false )
+                {
+                    is >> tsc;
+                }
 //cout << "numSites: " << numSites << ", numSCs: " << numSCs << endl;
                 YW_ASSERT_INFO(numSites >0 && numSCs > 0, "Site and single cells numbers: Cannot be zeros");
                 
@@ -593,7 +653,7 @@ static void TestCode( const char *filename )
 //const char *CODE_VER_INFO ="*** SCISTREE ver. 2.1.1.0, Feburary 2, 2024 ***";
 //const char *CODE_VER_INFO ="*** SCISTREE ver. 2.1.1.1, Feburary 5, 2024 ***";
 //const char *CODE_VER_INFO ="*** SCISTREE ver. 2.2.0.0, October 24, 2024 ***";
-const char *CODE_VER_INFO ="*** SCISTREE ver. 2.2.1.0, July 29, 2025 ***";
+const char *CODE_VER_INFO ="*** SCISTREE ver. 2.2.2.0, August 4, 2025 ***";
 
 //******************************************************************
 int main(int argc, char **argv)
