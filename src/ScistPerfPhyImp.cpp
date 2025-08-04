@@ -565,9 +565,9 @@ double ScistPerfPhyMLE :: Infer( std::set< std::pair<std::pair<int,int>, int> > 
             cout << "Computed log-lielihood from changed genotypes: " << CalcChangedGenosProb(*plistChangedPlaces) << endl;
 //#endif
             //cout << "Minimum cost: " << CalcMaxProbUpperBound() - loglikeliBest << endl;
-            
+//cout << "Before conversion: tree is " << *pstrTreeNW << endl;
             string strTreeOptOut = ConvCellTreeStr(*pstrTreeNW);
-            cout << "Constructed single cell phylogeny: " << *pstrTreeNW << endl;
+            cout << "Constructed single cell phylogeny: " << strTreeOptOut << endl;
         }
     }
     return loglikeliBest;
@@ -1182,6 +1182,7 @@ std::string ScistPerfPhyMLE :: ConvCellTreeStr(const std::string &strTree) const
     //
     if( this->listCellNames.size() == 0 )
     {
+//cout << "NO CELL NAMES SET....\n";
         // no conversion if no cell names specified
         return strTree;
     }
@@ -1190,9 +1191,13 @@ std::string ScistPerfPhyMLE :: ConvCellTreeStr(const std::string &strTree) const
     for(int i=0; i<(int)listCellNames.size(); ++i)
     {
         taxaMapper.AddTaxaStringWithId( i+1, listCellNames[i] );
+//cout << "ConvCellTreeStr: map taxa " << i+1 << " to " <<  listCellNames[i] << endl;
     }
     //
-    return taxaMapper.ConvIdStringWithOrigTaxa( strTree );
+    string res = taxaMapper.ConvIdStringWithOrigTaxa( strTree );
+//cout << "Before conversion: " << strTree << endl;
+//cout << "AFTER conversion: " << res << endl;
+    return res;
 }
 
 std::string ScistPerfPhyMLE :: ConvMutTreeStr(const std::string &strTree) const

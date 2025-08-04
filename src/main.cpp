@@ -424,19 +424,38 @@ static ScistGenGenotypeMat* ReadsInput(const char *filename )
                     YW_ASSERT_INFO(false, "Fatal error: you must provide names for each lineage");
                 }
                 bool fSiteName=false;
-                if(listCellNames.size()>0)
-                {
-                    fSiteName=true;;
-                }
+                //if(listCellNames.size()>0)
+                //{
+                //    fSiteName=true;
+                //}
                 
                 pMatIn = new ScistHaplotypeMat;
-                for(int i=0; i<(int)listCellNames.size(); ++i)
-                {
-                    pMatIn->AddGenotypeName( listCellNames[i] );
-                }
+                //for(int i=0; i<(int)listCellNames.size(); ++i)
+                //{
+                //    pMatIn->AddGenotypeName( listCellNames[i] );
+                //}
                 
                 pMatIn->ReadFromFile(inFile, numSites, numSCs, fSiteName);
  
+                if(listCellNames.size()>0)
+                {
+                    for(int i=0; i<(int)listCellNames.size(); ++i)
+                    {
+//cout << "Set cell name " << i << "  " << listCellNames[i] << endl;
+                        pMatIn->SetGenotypeName(i, listCellNames[i] );
+                    }
+                }
+        
+
+#if 0
+cout << "List of cell names: ";
+for(int i=0; i<(int)listCellNames.size(); ++i)
+{
+cout << listCellNames[i] << " ";
+}
+cout << endl;
+#endif
+                
 #if 0
 if( fSiteName )
 {
