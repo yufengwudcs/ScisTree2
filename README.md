@@ -106,7 +106,7 @@ HAPLOID
 0.05 0.02 0.7 0.05 0.9  
 ```
 
-* Explanations. HAPLOID: specify binary input (at the moment this is the only format supported). Each following row: the probability of the five cells being zero (wild-type).
+* Explanations. HAPLOID: specify binary input (at the moment this is the only format supported). Each following row: the probability of the five cells being zero (wild-type). For example, the first row says for the first site, the probability of the first cell (cell 1) has probability 0.01 being the wild type, the second cell has probability 0.6 being the wild type, and so on.
 * Please note: at the first row, only the keyword "HAPLOID" is required. The previous version of ScisTree2 requires two numbers (the numbers of sites and cells: 6: number of SNV sites; 5: number of cells). In this updated version, these two numbers are **optional** and can be **ommitted**. So, you can also write the first row as you can replace the above first row by "HAPLOID 6 5".  Moreover, you can specifiy the cell names in the first row. For example, you can replace the above first row by "HAPLOID 6 5 c1 c2 c3 c4 c5". This way, you can use your own cell names instead of the default 1/2/3... Please note: the cell names start at the 4th field of the first row; please add two numbers (you can simply use 0 for both: e.g., "HAPLOID 0 0 c1 c2 c3 c4 c5").
 * **Be careful: the rows are for the SNV sites and the columns are for the cells. Don't get this wrong.**
 
