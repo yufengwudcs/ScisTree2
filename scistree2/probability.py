@@ -6,6 +6,7 @@ class GenotypeProbability():
     def __init__(self, probs, cell_names=None, site_names=None):
         self.probs = probs
         self.nsite, self.ncell = probs.shape
+        self.shape = (self.nsite, self.ncell)
         if cell_names:
             self.cell_names = cell_names
         else:

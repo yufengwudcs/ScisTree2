@@ -3,8 +3,8 @@ requires = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "scistree2" 
-version = "0.1.0"           
+name = "scistree2"     
+dynamic = ["version"]     
 description = "Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search"
 readme = "README.md" 
 requires-python = ">=3.6" 
@@ -20,6 +20,9 @@ dependencies = [
     "pandas",
     "pptree"
 ]
+
+[tool.setuptools.dynamic]
+version = {attr = "scistree2.__version__"}
 
 [project.urls]
 Homepage = "https://github.com/yufengwudcs/ScisTree2"

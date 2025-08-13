@@ -110,33 +110,34 @@ class BaseTree(object):
         pass
 
   
-    def output(self, output_format='newick_sorted', branch_lengths=False):
-        def _newick_unsorted(node, branch_lengths):
+    def output(self, output_format='newick_sorted', branch_length_func=None):
+        def _newick_unsorted(node, branch_length_func):
             if node.is_leaf():
+                if branch_length_func:
+                    b = branch_length_func(node)
+                    return f'{node.name}:{b}'
                 return node.name
-            fstr = '(' + ','.join(['{newick}:{branch}'
-                                  .format(newick=_newick_unsorted(child, branch_lengths), branch=child.branch)
-                                   if branch_lengths else _newick_unsorted(child, branch_lengths)
-                                   for child in node.get_children()]) + ')'
+            fstr = '(' + ','.join([_newick_unsorted(child, branch_length_func)
+                                   for child in node.get_children()]) + ')' + (f':{branch_length_func(node)}' if branch_length_func else '')
             return fstr
 
-        def _newick_sorted(node, branch_lengths):
+        def _newick_sorted(node, branch_length_func):
             if node.is_leaf():
+                if branch_length_func:
+                    b = branch_length_func(node)
+                    return f'{node.name}:{b}'
                 return node.name
             newick_children = []
             for child in node.get_children():
-                if branch_lengths:
-                    newick_children.append('{newick}:{branch}'.format(newick=_newick_sorted(child, branch_lengths), branch=child.branch))
-                else:
-                    newick_children.append(_newick_sorted(child, branch_lengths))
-            fstr = '(' + ','.join(sorted(newick_children)) + ')'
+                newick_children.append(_newick_sorted(child, branch_length_func))
+            fstr = '(' + ','.join(sorted(newick_children)) + ')' + (f':{branch_length_func(node)}' if branch_length_func else '')
             return fstr
         
         def newick():
-            return _newick_unsorted(self.root, branch_lengths) + ';'
+            return _newick_unsorted(self.root, branch_length_func) + ';'
         
         def newick_sorted():
-            return _newick_sorted(self.root, branch_lengths) + ';'
+            return _newick_sorted(self.root, branch_length_func) + ';'
 
         funcs = {'newick': newick, 'newick_sorted': newick_sorted}
         return funcs[output_format]()

@@ -20,6 +20,7 @@ class Node(object):
             self.name = name
         self.parent = {}
         self.branch = branch
+        self.mutations = []
         self.children = OrderedDict()
         self._children = []  # using for printing tree
 
@@ -112,6 +113,10 @@ class Node(object):
             raise Exception('parent %s cannot be added as a child.' % node.identifier)
         self.children[node.identifier] = node
         self._children.append(node)
+
+    def add_mutation(self, site):
+        if not site in self.mutations:
+            self.mutations.append(site)
 
     def remove_child(self, node):
         if node.identifier not in self.children:

@@ -1,8 +1,9 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from setuptools.command.build_py import build_py
 import subprocess
 import shutil
 import os
+
 
 CPP_DIR = './src'
 PACKAGE_NAME = 'scistree2'
@@ -31,7 +32,6 @@ class BuildWithMake(build_py):
 
 setup(
     name=PACKAGE_NAME,
-    version='0.1.0',
     packages=[PACKAGE_DIR],
     cmdclass={'build_py': BuildWithMake},
     install_requires=[
