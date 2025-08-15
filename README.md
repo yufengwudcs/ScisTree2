@@ -76,11 +76,14 @@ Check if ScisTree2 is ready to run by typing: `./scistree`, you should see some 
 Now type: 
 `./scistree example_input.txt`, you should see the following output:
 ```text
-*** SCISTREE ver. 2.2.2.0, August 4, 2025 *** 
+*** SCISTREE ver. 2.2.3.0, August 14, 2025 ***
+
+#cells: 5, #sites: 6
+List of cell names: c1 c2 c3 c4 c5 
 Called genotypes output to file: example_input.txt.genos.imp
 **** Maximum log-likelihood: -6.27126, number of changed genotypes: 2
 Computed log-lielihood from changed genotypes: -6.27126
-Constructed single cell phylogeny: (((1,3),(2,4)),5)
+Constructed single cell phylogeny: (((c1,c3),(c2,c4)),c5)
 Elapsed time = 0 seconds.
 ```
 
@@ -97,17 +100,17 @@ First, you should understand some basics about ScisTree2. I would recommend to r
 
 The first thing to use ScisTree2 is to prepare the input. Here is the content of an example(example_input.txt):
 ```js
-x1 x2 x3 x4 x5
-c1 0.01 0.6 0.08 0.8 0.7
-c2 0.8 0.02 0.7 0.01 0.3
-c3 0.02 0.8 0.02 0.8 0.9
-c4 0.9 0.9 0.8 0.8 0.02
-c5 0.01 0.8 0.01 0.8 0.9
-c6 0.05 0.02 0.7 0.05 0.9
+c1 c2 c3 c4 c5
+s1 0.01 0.6 0.08 0.8 0.7
+s2 0.8 0.02 0.7 0.01 0.3
+s3 0.02 0.8 0.02 0.8 0.9
+s4 0.9 0.9 0.8 0.8 0.02
+s5 0.01 0.8 0.01 0.8 0.9
+s6 0.05 0.02 0.7 0.05 0.9
 ```
 
 * Explanations: Each row starts with the row identifier, then the probability of the five cells being zero (wild-type). For example, the first row says for the first site, the probability of the first cell (cell 1) has probability 0.01 being the wild type, the second cell has probability 0.6 being the wild type, and so on.
-* You can specifiy the cell names in the first row. For example, "x1 x2 x3 x4 x5".
+* You can specifiy the cell names in the first row. For example, "c1 c2 c3 c4 c5".
 * **Be careful: the rows are for the SNV sites and the columns are for the cells. Don't get this wrong.**
 
 ScisTree2 is essentially a faster and also somewhat more accurate ScisTree. Some features from the original ScisTree (version 1) are not supported in the current implementaiton of ScisTree2. These include: (i) ternary data input: ScisTree2 only supports binary data as of now; (ii) parameter imputation and doublet imputation. I haven't got chance to upgrade these features. For the moment, ScisTree2 is dedicated for cell lineage tree inference.
