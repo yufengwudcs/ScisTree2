@@ -38,18 +38,21 @@ First, you should understand some basics about ScisTree2. I would recommend to r
 The first thing to use ScisTree2 is to prepare the input. ScisTree2 uses the same data format as ScisTree1. Here is the content of triv4-paper-1.dat:
 
 The first thing to use ScisTree2 is to prepare the input. ScisTree2 uses the same data format as ScisTree. Here is the content of an example(triv4-paper-1.dat):
+The first thing to use ScisTree2 is to prepare the input. Here is the content of an example(example_input.txt):
 ```js
-HAPLOID
-0.01 0.6 0.08 0.8 0.7   
-0.8 0.02 0.7 0.01 0.3   
-0.02 0.8 0.02 0.8 0.9   
-0.9 0.9 0.8 0.8 0.02   
-0.01 0.8 0.01 0.8 0.9   
-0.05 0.02 0.7 0.05 0.9  
+c1 c2 c3 c4 c5
+s1 0.01 0.6 0.08 0.8 0.7
+s2 0.8 0.02 0.7 0.01 0.3
+s3 0.02 0.8 0.02 0.8 0.9
+s4 0.9 0.9 0.8 0.8 0.02
+s5 0.01 0.8 0.01 0.8 0.9
+s6 0.05 0.02 0.7 0.05 0.9
 ```
 
-* Explanations. HAPLOID: specify binary input (at the moment this is the only format supported). Each following row: the probability of the five cells being zero (wild-type). For example, the first row says for the first site, the probability of the first cell (cell 1) has probability 0.01 being the wild type, the second cell has probability 0.6 being the wild type, and so on.
-* Please note: at the first row, only the keyword "HAPLOID" is required. The previous version of ScisTree2 requires two numbers (the numbers of sites and cells: 6: number of SNV sites; 5: number of cells). In this updated version, these two numbers are **optional** and can be **ommitted**. So, you can also write the first row as you can replace the above first row by "HAPLOID 6 5".  Moreover, you can specifiy the cell names in the first row. For example, you can replace the above first row by "HAPLOID 6 5 c1 c2 c3 c4 c5". This way, you can use your own cell names instead of the default 1/2/3... Please note: the cell names start at the 4th field of the first row; please add two numbers (you can simply use 0 for both: e.g., "HAPLOID 0 0 c1 c2 c3 c4 c5").
+Explanations: 
+- You should specifiy the cell names in the first row. For example, "c1 c2 c3 c4 c5". Please note that don't use **HAPLOID** or **HAPLOTYPES** as cell names, which are reserved keywords in ScisTree2.
+- The following row starts with the row identifier, then the probability of the five cells being zero (wild-type). For example, the second row says for the first site, the probability of the first cell (cell 1) has probability 0.01 being the wild type, the second cell has probability 0.6 being the wild type, and so on.
+  
 * **Be careful: the rows are for the SNV sites and the columns are for the cells. Don't get this wrong.**
 
 ScisTree2 is essentially a faster and also somewhat more accurate ScisTree. Some features from the original ScisTree (version 1) are not supported in the current implementaiton of ScisTree2. These include: (i) ternary data input: ScisTree2 only supports binary data as of now; (ii) parameter imputation and doublet imputation. I haven't got chance to upgrade these features. For the moment, ScisTree2 is dedicated for cell lineage tree inference.
