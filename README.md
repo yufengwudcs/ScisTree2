@@ -110,7 +110,7 @@ s6 0.05 0.02 0.7 0.05 0.9
 ```
 
 Explanations: 
-- You can specifiy the cell names in the first row. For example, "c1 c2 c3 c4 c5".
+- You should specifiy the cell names in the first row. For example, "c1 c2 c3 c4 c5". Please note that don't use **HAPLOID** or **HAPLOTYPES** as cell names, which are reserved keywords in ScisTree2.
 - The following row starts with the row identifier, then the probability of the five cells being zero (wild-type). For example, the second row says for the first site, the probability of the first cell (cell 1) has probability 0.01 being the wild type, the second cell has probability 0.6 being the wild type, and so on.
 
     **Be careful: the rows are for the SNV sites and the columns are for the cells. Don't get this wrong.**
