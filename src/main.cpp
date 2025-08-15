@@ -325,6 +325,7 @@ static void CountsInFile(const char *filename, int &numCells, int &numSites)
     }
     // omit the first row or any row start with a / or empty
     string line;
+    bool fNewFormat = true;
     numSites = 0;
     numCells = 0;
     bool fFirstRow = true;
@@ -333,7 +334,22 @@ static void CountsInFile(const char *filename, int &numCells, int &numSites)
         // inc #sites for each valid row
         if(line.length()>0 && line[0] != '/' )
         {
-            if( fFirstRow == false )
+            if( fFirstRow == true )
+            {
+                std::istringstream iss(line);
+                std::string field;
+                
+                // read in the field name first
+                if( !(iss >> field) )
+                {
+                    YW_ASSERT_INFO(false, "First row cannot be empty");
+                }
+                if( field == "HAPLOID" || field == "HAPLOTYPES")
+                {
+                    fNewFormat = false;
+                }
+            }
+            else
             {
                 ++numSites;
                 
@@ -343,6 +359,12 @@ static void CountsInFile(const char *filename, int &numCells, int &numSites)
                     //
                     std::istringstream iss(line);
                     std::string field;
+                    
+                    // read in the field name first
+                    if( fNewFormat && !(iss >> field) )
+                    {
+                        YW_ASSERT_INFO(false, "Check input format: each site must start with the site label");
+                    }
 
                     while (iss >> field) { // Extracts fields separated by whitespace
                         numCells++;
@@ -389,6 +411,11 @@ static ScistGenGenotypeMat* ReadsInput(const char *filename )
             // looking for keyword
             string strKey;
             is >> strKey;
+            if( strKey == "TERNARY" )
+            {
+                cout << "TERNARY data is not supported yet by Scistree2. Please consider using the HAPLOID data for the moment.\n";
+                exit(1);
+            }
             if( strKey == "HAPLOTYPES" || strKey == "HAPLOID" )
             {
                 //is >> numSites >> numSCs;
@@ -470,16 +497,17 @@ cout << endl;
                 
                 break;
             }
-            else if( strKey == "TERNARY" )
+            else
             {
-                cout << "TERNARY data is not supported yet by Scistree2. Please consider using the HAPLOID data for the moment.\n";
-                exit(1);
-                
-                is >> numSites >> numSCs;
-                //cout << "numSites: " << numSites << ", numSCs: " << numSCs << endl;
+                // now the new format:
+                // first row: list of cell names
+                // second row and on: each row is a site, starting with a site name
+//cout << "numSites: " << numSites << ", numSCs: " << numSCs << endl;
                 YW_ASSERT_INFO(numSites >0 && numSCs > 0, "Site and single cells numbers: Cannot be zeros");
                 
-                // read in names if specified
+                listCellNames.push_back(strKey);
+                
+                // read the rest of names if specified
                 while( is.eof() == false )
                 {
                     string strName;
@@ -487,30 +515,51 @@ cout << endl;
                     if( strName.length()>0)
                     {
                         listCellNames.push_back(strName);
-                    //cout << "One lineage name: " << strName << endl;
+//cout << "One lineage name: " << strName << endl;
                     }
                     if( (int)listCellNames.size() > numSCs )
                     {
                         break;
                     }
                 }
+//#if 0
+cout << "List of cell names: ";
+for(int i=0; i<(int)listCellNames.size(); ++i)
+{
+cout << listCellNames[i] << " ";
+}
+cout << endl;
+//#endif
                 if( listCellNames.size() > 0 && (int)listCellNames.size() != numSCs)
                 {
                     YW_ASSERT_INFO(false, "Fatal error: you must provide names for each lineage");
                 }
-                bool fSiteName=false;
-                if(listCellNames.size()>0)
-                {
-                    fSiteName=true;;
-                }
+                bool fSiteName=true;
                 
-                pMatIn = new ScistTernaryMat;
-                for(int i=0; i<(int)listCellNames.size(); ++i)
-                {
-                    pMatIn->AddGenotypeName( listCellNames[i] );
-                }
+                pMatIn = new ScistHaplotypeMat;
                 
                 pMatIn->ReadFromFile(inFile, numSites, numSCs, fSiteName);
+ 
+                if(listCellNames.size()>0)
+                {
+                    for(int i=0; i<(int)listCellNames.size(); ++i)
+                    {
+//cout << "Set cell name " << i << "  " << listCellNames[i] << endl;
+                        pMatIn->SetGenotypeName(i, listCellNames[i] );
+                    }
+                }
+                
+#if 0
+if( fSiteName )
+{
+cout << "List of site names: ";
+for(int i=0; i<numSites; ++i)
+{
+cout << pMatIn->GetSiteName(i) << " ";
+}
+cout << endl;
+}
+#endif
                 
                 break;
             }
@@ -672,7 +721,8 @@ static void TestCode( const char *filename )
 //const char *CODE_VER_INFO ="*** SCISTREE ver. 2.1.1.0, Feburary 2, 2024 ***";
 //const char *CODE_VER_INFO ="*** SCISTREE ver. 2.1.1.1, Feburary 5, 2024 ***";
 //const char *CODE_VER_INFO ="*** SCISTREE ver. 2.2.0.0, October 24, 2024 ***";
-const char *CODE_VER_INFO ="*** SCISTREE ver. 2.2.2.0, August 4, 2025 ***";
+//const char *CODE_VER_INFO ="*** SCISTREE ver. 2.2.2.0, August 4, 2025 ***";
+const char *CODE_VER_INFO ="*** SCISTREE ver. 2.2.3.0, August 14, 2025 ***";
 
 //******************************************************************
 int main(int argc, char **argv)

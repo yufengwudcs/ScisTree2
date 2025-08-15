@@ -45,7 +45,7 @@ To use ScisTree2, you will need the following tools and libraries installed:
     ```bash
     cd src
     make
-    # You can then test it directly, e.g., ./scistree triv4-paper-1.txt
+    # You can then test it directly, e.g., ./scistree example_input.txt
     ```
     This step is not required for the Python package installation if using `pip install .` as described above. See more details below.
 
@@ -74,10 +74,10 @@ The executable is called `scistree`.
 Check if ScisTree2 is ready to run by typing: `./scistree`, you should see some output about the basic usage of ScisTree2. 
 
 Now type: 
-`./scistree triv4-paper-1.txt`, you should see the following output:
+`./scistree example_input.txt`, you should see the following output:
 ```text
 *** SCISTREE ver. 2.2.2.0, August 4, 2025 *** 
-Called genotypes output to file: triv4-paper-1.txt.genos.imp
+Called genotypes output to file: example_input.txt.genos.imp
 **** Maximum log-likelihood: -6.27126, number of changed genotypes: 2
 Computed log-lielihood from changed genotypes: -6.27126
 Constructed single cell phylogeny: (((1,3),(2,4)),5)
@@ -95,15 +95,15 @@ You may also read the ScisTree2's User Manual, which is in PDF format and is dis
 #### Data format of ScisTree2 in C++?
 First, you should understand some basics about ScisTree2. I would recommend to read the [user mannual](https://github.com/yufengwudcs/ScisTree/blob/master/ScisTree-UserManual.pdf) of the orgianl ScisTree.
 
-The first thing to use ScisTree2 is to prepare the input. ScisTree2 uses the same data format as ScisTree. Here is the content of an example(triv4-paper-1.dat):
+The first thing to use ScisTree2 is to prepare the input. ScisTree2 uses the same data format as ScisTree. Here is the content of an example(example_input.txt):
 ```js
-HAPLOID
-0.01 0.6 0.08 0.8 0.7   
-0.8 0.02 0.7 0.01 0.3   
-0.02 0.8 0.02 0.8 0.9   
-0.9 0.9 0.8 0.8 0.02   
-0.01 0.8 0.01 0.8 0.9   
-0.05 0.02 0.7 0.05 0.9  
+x1 x2 x3 x4 x5
+c1 0.01 0.6 0.08 0.8 0.7
+c2 0.8 0.02 0.7 0.01 0.3
+c3 0.02 0.8 0.02 0.8 0.9
+c4 0.9 0.9 0.8 0.8 0.02
+c5 0.01 0.8 0.01 0.8 0.9
+c6 0.05 0.02 0.7 0.05 0.9
 ```
 
 * Explanations. HAPLOID: specify binary input (at the moment this is the only format supported). Each following row: the probability of the five cells being zero (wild-type). For example, the first row says for the first site, the probability of the first cell (cell 1) has probability 0.01 being the wild type, the second cell has probability 0.6 being the wild type, and so on.

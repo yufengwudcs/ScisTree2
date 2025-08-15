@@ -1603,6 +1603,14 @@ ScistGenGenotypeMat * ScistHaplotypeMat :: Copy() const
     ScistHaplotypeMat *pMatCopy = new ScistHaplotypeMat();
     string fn = GetFileName();
     pMatCopy->SetFileName(fn);
+    //for(unsigned int i=0; i<GetNumHaps(); ++i)
+    //{
+    //    pMatCopy->AddGenotypeName(GetGenotypeName(i) );
+    //}
+    for(unsigned int i=0; i<GetNumSites(); ++i)
+    {
+        pMatCopy->AddSiteName( GetSiteName(i) );
+    }
     
     for(int i=0; i<GetNumNames(); ++i)
     {
@@ -2229,8 +2237,9 @@ void ScistHaplotypeMat :: OutputImput(const string *pStrDesc) const
     }
     for(int s=0; s<GetNumSites(); ++s)
     {
-        outFile << "Site " << setw(6) << s+1 << ":\t";
-
+        //outFile << "Site " << setw(6) << s+1 << ":\t";
+        outFile << "Site " << GetSiteName(s) << ":\t";
+        
         for(int i=0; i<GetNumHaps(); ++i)
         {
             outFile << GetGenotypeAt(i, s) << " ";
