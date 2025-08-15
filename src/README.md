@@ -55,6 +55,17 @@ Explanations:
   
 * **Be careful: the rows are for the SNV sites and the columns are for the cells. Don't get this wrong.**
 
+There is an older format of input data that ScisTree2 also supports (we recommend to use the new format; this format is only for those who used the original ScisTree or the earlier versions of ScisTree2). In this format, the first row is the keyword HAPLOID. Then for each following row, there is no row identifier. For example,
+```js
+HAPLOID
+0.01 0.6 0.08 0.8 0.7
+0.8 0.02 0.7 0.01 0.3
+0.02 0.8 0.02 0.8 0.9
+0.9 0.9 0.8 0.8 0.02
+0.01 0.8 0.01 0.8 0.9
+0.05 0.02 0.7 0.05 0.9
+```
+
 ScisTree2 is essentially a faster and also somewhat more accurate ScisTree. Some features from the original ScisTree (version 1) are not supported in the current implementaiton of ScisTree2. These include: (i) ternary data input: ScisTree2 only supports binary data as of now; (ii) parameter imputation and doublet imputation. I haven't got chance to upgrade these features. For the moment, ScisTree2 is dedicated for cell lineage tree inference.
 
 The following options can be useful.
