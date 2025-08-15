@@ -109,9 +109,11 @@ s5 0.01 0.8 0.01 0.8 0.9
 s6 0.05 0.02 0.7 0.05 0.9
 ```
 
-* Explanations: Each row starts with the row identifier, then the probability of the five cells being zero (wild-type). For example, the first row says for the first site, the probability of the first cell (cell 1) has probability 0.01 being the wild type, the second cell has probability 0.6 being the wild type, and so on.
-* You can specifiy the cell names in the first row. For example, "c1 c2 c3 c4 c5".
-* **Be careful: the rows are for the SNV sites and the columns are for the cells. Don't get this wrong.**
+Explanations: 
+- You can specifiy the cell names in the first row. For example, "c1 c2 c3 c4 c5".
+- The following row starts with the row identifier, then the probability of the five cells being zero (wild-type). For example, the second row says for the first site, the probability of the first cell (cell 1) has probability 0.01 being the wild type, the second cell has probability 0.6 being the wild type, and so on.
+
+    **Be careful: the rows are for the SNV sites and the columns are for the cells. Don't get this wrong.**
 
 ScisTree2 is essentially a faster and also somewhat more accurate ScisTree. Some features from the original ScisTree (version 1) are not supported in the current implementaiton of ScisTree2. These include: (i) ternary data input: ScisTree2 only supports binary data as of now; (ii) parameter imputation and doublet imputation. I haven't got chance to upgrade these features. For the moment, ScisTree2 is dedicated for cell lineage tree inference.
 
