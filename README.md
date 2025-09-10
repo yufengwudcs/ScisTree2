@@ -5,7 +5,7 @@
 <h2 align="center">Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data </h2>
 
 <!-- ## Introduction -->
-Software accompanyment for **"ScisTree2 enables large-scale inference of cell lineage trees and genotype calling using efficient local search"**, Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, manuscript, 2025. Here is the preprint in a slightly different title [*Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search*, Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, manuscript, 2025](https://www.biorxiv.org/content/10.1101/2024.11.08.622704v1) (under the title *"ScisTree2: An Improved Method for Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single Cell Data"*). This work was presented in the RECOMB 2025 conference. The ScisTree2 paper is currently under review.
+Software accompanyment for **"ScisTree2 enables large-scale inference of cell lineage trees and genotype calling using efficient local search"**, Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, Genome Research, in press, 2025 (accepted as of Sept. 3, 2025). Here is the preprint in a slightly different title [*Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search*, Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, manuscript, 2025](https://www.biorxiv.org/content/10.1101/2024.11.08.622704v1) (under the title *"ScisTree2: An Improved Method for Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single Cell Data"*). This work was presented in the RECOMB 2025 conference.
 
 This is an enhanced version of ScisTree (*Accurate and efficient cell lineage tree inference from noisy single cell data: the maximum likelihood perfect phylogeny approach, Bioinformatics, Wu, Volume 36, Issue 3, Pages 742–750, 2020*).
 
@@ -122,7 +122,7 @@ The main change is about speed and accuracy. ScisTree2 is order of mangnitude fa
 
 ## Data Availability 
 
-All simulated data, experimental data(HGSOC), and scripts used to reproduce the results in paper *"Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search"* are released at Zenodo.
+All simulated data, experimental data(HGSOC), and scripts used to reproduce the results in the SicsTree2 paper are released at Zenodo.
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15620911.svg)](https://zenodo.org/records/15620911)
 
 ## Contact
