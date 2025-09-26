@@ -64,7 +64,7 @@ The tutorial covers:
 *   Running inference with VCF file.
 *   Visualizing trees.
 *   Evaluating results using various metrics.
-*   Bootstrapping for branch (clade) confidence estimates (added September 27, 2025). 
+*   **Bootstrapping** for branch (clade) confidence estimates (added September 27, 2025). 
 
 The example data used in the tutorial can be found in the `tutorials/data/` directory.
 
