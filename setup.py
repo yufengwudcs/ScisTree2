@@ -36,7 +36,8 @@ setup(
     cmdclass={'build_py': BuildWithMake},
     install_requires=[
         'numpy',
-        'pptree'
+        'pptree',
+        'phytreeviz'
     ],
     python_requires='>=3.6',
     package_data={

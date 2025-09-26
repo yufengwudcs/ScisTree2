@@ -110,34 +110,52 @@ class BaseTree(object):
         pass
 
   
-    def output(self, output_format='newick_sorted', branch_length_func=None):
-        def _newick_unsorted(node, branch_length_func):
+    def output(self, output_format='newick_sorted', branch_length_func=None, confidence_func=None):
+        def _newick_unsorted(node, branch_length_func, confidence_func):
             if node.is_leaf():
-                if branch_length_func:
+                if branch_length_func and confidence_func:
+                    b = branch_length_func(node)
+                    c = confidence_func(node)
+                    return f'({node.name}){c}:{b}'
+                elif branch_length_func:
                     b = branch_length_func(node)
                     return f'{node.name}:{b}'
+                elif confidence_func:
+                    c = confidence_func(node)
+                    return f'({node.name}{c})'
                 return node.name
-            fstr = '(' + ','.join([_newick_unsorted(child, branch_length_func)
-                                   for child in node.get_children()]) + ')' + (f':{branch_length_func(node)}' if branch_length_func else '')
+            fstr = '(' + ','.join([_newick_unsorted(child, branch_length_func, confidence_func)
+                                   for child in node.get_children()]) + ')' +\
+                                     (f'{confidence_func(node)}' if confidence_func else '') +\
+                                    (f':{branch_length_func(node)}' if branch_length_func else '')
             return fstr
 
-        def _newick_sorted(node, branch_length_func):
+        def _newick_sorted(node, branch_length_func, confidence_func):
             if node.is_leaf():
-                if branch_length_func:
+                if branch_length_func and confidence_func:
+                    b = branch_length_func(node)
+                    c = confidence_func(node)
+                    return f'({node.name}){c}:{b}'
+                elif branch_length_func:
                     b = branch_length_func(node)
                     return f'{node.name}:{b}'
+                elif confidence_func:
+                    c = confidence_func(node)
+                    return f'({node.name}{c})'
                 return node.name
             newick_children = []
             for child in node.get_children():
-                newick_children.append(_newick_sorted(child, branch_length_func))
-            fstr = '(' + ','.join(sorted(newick_children)) + ')' + (f':{branch_length_func(node)}' if branch_length_func else '')
+                newick_children.append(_newick_sorted(child, branch_length_func, confidence_func))
+            fstr = '(' + ','.join(sorted(newick_children)) + ')' + \
+                    (f'{confidence_func(node)}' if confidence_func else '') +\
+                    (f':{branch_length_func(node)}' if branch_length_func else '')
             return fstr
         
         def newick():
-            return _newick_unsorted(self.root, branch_length_func) + ';'
+            return _newick_unsorted(self.root, branch_length_func, confidence_func) + ';'
         
         def newick_sorted():
-            return _newick_sorted(self.root, branch_length_func) + ';'
+            return _newick_sorted(self.root, branch_length_func, confidence_func) + ';'
 
         funcs = {'newick': newick, 'newick_sorted': newick_sorted}
         return funcs[output_format]()
