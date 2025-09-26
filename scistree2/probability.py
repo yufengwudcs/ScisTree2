@@ -25,6 +25,25 @@ class GenotypeProbability():
         df = pd.DataFrame(data=np.round(self.probs, 4), columns=self.cell_names, index=self.site_names)
         df.to_csv(out_name)
 
+    def copy(self):
+        probs = self.probs.copy()
+        cell_names = self.cell_names[:]
+        site_names = self.site_names[:]
+        return GenotypeProbability(probs, cell_names, site_names)
+
+    def subsample(self, n, shuffle_taxa=True):
+        assert n <= self.nsite, "sampling size is larger than self.nsite."
+        gp = self.copy()
+        inds_site= np.random.choice(np.arange(gp.nsite), n, replace=True)
+        inds_cell = np.arange(gp.ncell)
+        if shuffle_taxa:
+            np.random.shuffle(inds_cell)
+        probs = gp.probs[inds_site][:, inds_cell]
+        cell_names = [gp.cell_names[i] for i in inds_cell]
+        site_names = [gp.site_names[i] for i in inds_site]
+        return GenotypeProbability(probs, cell_names, site_names) 
+
+
 
 def from_probs(probs, cell_names=None, site_names=None, margin=1e-5):
     probs = np.clip(probs, a_min=margin, a_max=1-margin)

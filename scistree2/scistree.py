@@ -30,6 +30,7 @@ class ScisTree2():
         assert max_iter >= 0, "max_iter should be positive."
         self.max_iter = max_iter
         self.cmd = self.build_cmd(self.bin_path, threads, nj, nni, verbose)
+
         
     def build_cmd(self, bin_path, threads, nj, nni, verbose):
         if threads == -1:
@@ -80,6 +81,34 @@ class ScisTree2():
                     genos = list(map(int, genos))
                     genotypes.append(genos)
         return np.array(genotypes)
+    
+
+    def bootstrap(self, tree, gp, num_bootstrap=100, num_site=-1):
+        """
+        Felsenstein’s tree bootstrp. 
+        """
+        if num_site == -1:
+            num_site = gp.nsite
+        clades = {}
+        for i in range(num_bootstrap):
+            subgp = gp.subsample(n=num_site)
+            t, geno, ml = self.infer(subgp)
+            for split in t.get_splits():
+                if split in clades:
+                    clades[split] += 1
+                else:
+                    clades[split] = 1
+        for node in tree.get_all_nodes():
+            if tree[node].is_leaf() or tree[node].is_root():
+                tree[node].branch_confidence = 1.0
+            else:
+                c = frozenset([leaf.name for leaf in tree[node].get_leaves()])
+                if c in clades:
+                    n = clades[c]
+                else:
+                    n = 0
+                tree[node].branch_confidence = n / num_bootstrap
+        return tree
     
 
     def infer(self, gp, verbose=False):

@@ -142,8 +142,13 @@ class BaseTree(object):
         funcs = {'newick': newick, 'newick_sorted': newick_sorted}
         return funcs[output_format]()
 
-    def draw(self, **kwargs):
-        pptree.print_tree(self.root, "_children", **kwargs)
+    def draw(self, attr=None, **kwargs):
+        if attr is not None:
+            for node in self.get_all_nodes():
+                self[node].__setattr__(attr, str(self[node].__getattribute__(attr)))
+            pptree.print_tree(self.root, "_children", nameattr=attr, **kwargs)
+        else:
+            pptree.print_tree(self.root, "_children", **kwargs)
 
     def copy(self):
         return deepcopy(self)
