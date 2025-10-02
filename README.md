@@ -9,6 +9,11 @@ Software accompanyment for **"ScisTree2 enables large-scale inference of cell li
 
 This is an enhanced version of ScisTree (*Accurate and efficient cell lineage tree inference from noisy single cell data: the maximum likelihood perfect phylogeny approach, Bioinformatics, Wu, Volume 36, Issue 3, Pages 742–750, 2020*).
 
+
+## Documentation website
+You can refer to our [documentation](https://haotianzh.github.io/scistree2doc/) for more details, or simply follow the instructions below.
+
+
 ## Required Tools
 
 To use ScisTree2, you will need the following tools and libraries installed:
