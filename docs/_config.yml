@@ -1,0 +1,35 @@
+# _config.yml
+title: ScisTree2 Book
+author: Haotian Zhang, Yufeng Wu
+logo: './logo.png'
+
+repository:
+  url: https://github.com/yufengwudcs/ScisTree2
+
+html:
+  use_repository_button: true
+  analytics:
+    google_analytics_id: "G-ZMQYP3Z5X1"
+
+
+copyright: "2025 LabWu @ University of Connecticut"
+
+execute:
+  execute_notebooks: force
+  timeout: 30
+
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - dollarmath
+
+launch_buttons:
+  notebook_interface: jupyterlab
+  binderhub_url: ''
+  colab_url: ''
+  thebe: false
+
+sphinx:
+  config:
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js

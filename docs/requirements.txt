@@ -1,0 +1,10 @@
+jupyter-book>=0.13
+pydata-sphinx-theme
+matplotlib
+numpy
+sphinx-inline-tabs
+sphinx-examples
+sphinx-proof
+sphinx-hoverxref
+pptree
+phytreeviz

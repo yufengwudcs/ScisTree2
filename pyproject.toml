@@ -18,7 +18,8 @@ keywords = ["cell lineage tree", "fast inference"]
 dependencies = [
     "numpy",
     "pandas",
-    "pptree"
+    "pptree",
+    "phytreeviz"
 ]
 
 [tool.setuptools.dynamic]

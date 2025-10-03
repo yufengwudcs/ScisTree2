@@ -1,0 +1,31 @@
+# This is a clean, corrected version.
+# Replace the contents of your _toc.yml with this.
+format: jb-book
+root: index
+parts:
+  - chapters:
+    - file: citation
+      title: Citation
+
+  - caption: Installation
+    chapters:
+    - file: installation/installation-py
+    - file: installation/installation-c
+
+  - caption: Tutorials
+    chapters:
+    - file: tutorials/usage
+    - file: tutorials/input
+    - file: tutorials/branch_length
+    - file: tutorials/bootstrap
+    - file: tutorials/evaluation
+
+  - caption: CLI
+    chapters:
+    - file: cli
+
+  - caption: Release Notes
+    chapters:
+    - file: release
+      title: Release Notes
+
