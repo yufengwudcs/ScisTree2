@@ -30,7 +30,7 @@ To use ScisTree2, you will need the following tools and libraries installed:
     ```bash
     python -m pip install --upgrade pip
     ```
-2. Install `scistree2`
+2. Install `scistree2`:
     ```bash 
     pip install scistree2
     ```

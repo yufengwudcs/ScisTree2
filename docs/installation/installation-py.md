@@ -17,7 +17,7 @@ We have successfully tested it on Linux, macOS, and Windows (via WSL).
     ```bash
     python -m pip install --upgrade pip
     ```
-2. Install `scistree2`
+2. Install `scistree2`:
     ```bash 
     pip install scistree2
     ```
