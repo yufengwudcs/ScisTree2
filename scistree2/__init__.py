@@ -12,4 +12,4 @@ from .reader import read_vcf
 ### version updates ###
 # __version__ = "0.1.0" # original submission
 # __version__ = "0.2.0" # add ete3 tree, add mutation profile at branches.
-__version__ = "0.3.0" # add bootstrapping.
+__version__ = "0.3.0.post" # add bootstrapping.

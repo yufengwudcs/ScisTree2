@@ -1,5 +1,10 @@
 # Release notes
 
+## Version 0.3.0.post (10/30/2025)
+
+- Upload to PyPI
+
+
 ## Version 0.3.0 (09/27/2025)
 
 - Add bootstrapping as branch support
