@@ -9,3 +9,4 @@ scistree2/__pycache__/
 docs/_build/
 docs/conf.py
 docs/readthedocs/*
+dist/

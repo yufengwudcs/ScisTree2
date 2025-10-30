@@ -3,11 +3,16 @@ from setuptools.command.build_py import build_py
 import subprocess
 import shutil
 import os
+from pathlib import Path
 
 
-CPP_DIR = './src'
 PACKAGE_NAME = 'scistree2'
+# PROJECT_ROOT = str(Path(__file__).parent.resolve())
+CPP_DIR = './src'
 PACKAGE_DIR = 'scistree2'
+# CPP_DIR = f'{PROJECT_ROOT}/src'
+# PACKAGE_DIR = f'{PROJECT_ROOT}/scistree2'
+
 
 class BuildWithMake(build_py):
     def run(self):

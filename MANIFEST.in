@@ -1,0 +1,3 @@
+# MANIFEST.in
+# Explicitly include the C++ source directory and its contents
+recursive-include src *
