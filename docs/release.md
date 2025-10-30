@@ -1,6 +1,6 @@
 # Release notes
 
-## Version 0.3.0.post (10/30/2025)
+## Version 0.4.0 (10/30/2025)
 
 - Upload to PyPI
 
