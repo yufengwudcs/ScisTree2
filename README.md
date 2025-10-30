@@ -18,13 +18,24 @@ You can refer to our [documentation](https://scistree2.readthedocs.io/en/latest/
 
 To use ScisTree2, you will need the following tools and libraries installed:
 *   **`python` & `pip`**: Version 3.6 or higher.
-*   **`g++`**: A C++ compiler.
-*   **`make`**: For building the backend.
+*   **`g++`**: A C++ compiler. (from source only)
+*   **`make`**: For building the backend. (from source only)
 
 **We have successfully tested it on Linux, macOS, and Windows (via WSL).*
 
 ## Installation
 
+### 1. Install from [PyPI](https://pypi.org/project/scistree2/):
+1. Upgrade pip:
+    ```bash
+    python -m pip install --upgrade pip
+    ```
+2. Install `scistree2`
+    ```bash 
+    pip install scistree2
+    ```
+
+### 2. Install from source:
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/yufengwudcs/ScisTree2.git
