@@ -2,7 +2,8 @@
   <img src="https://scistree2.readthedocs.io/en/latest/_static/logo.png" alt="ScisTree2 Logo" width="200">
 </p>
 <p align="center">
-  <a href="https://github.com/yufengwudcs/ScisTree2/issues"><img src="https://img.shields.io/github/issues/yufengwudcs/ScisTree2/issues"/></a><a href="https://pypi.org/project/scistree2/"><img src="https://img.shields.io/pypi/v/scistree2?color=blue"/></a><a href="https://scistree2.readthedocs.io/en/latest/"><img src="https://img.shields.io/readthedocs/scistree2/latest"/></a><a href=""><img src="https://img.shields.io/github/license/yufengwudcs/ScisTree2?color=%239b02fa"/></a><a href="https://github.com/yufengwudcs/ScisTree2"><img src="https://img.shields.io/github/stars/yufengwudcs/ScisTree2?style=social"/></a>
+  <a href="https://github.com/yufengwudcs/ScisTree2/issues"><img src="https://img.shields.io/github/issues/yufengwudcs/ScisTree2
+  "/></a><a href="https://pypi.org/project/scistree2/"><img src="https://img.shields.io/pypi/v/scistree2?color=blue"/></a><a href="https://scistree2.readthedocs.io/en/latest/"><img src="https://img.shields.io/readthedocs/scistree2/latest"/></a><a href=""><img src="https://img.shields.io/github/license/yufengwudcs/ScisTree2?color=%239b02fa"/></a><a href="https://github.com/yufengwudcs/ScisTree2"><img src="https://img.shields.io/github/stars/yufengwudcs/ScisTree2?style=social"/></a>
 </p>
 <h2 align="center">Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data </h2>
 
