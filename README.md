@@ -9,8 +9,7 @@
     <img src="https://img.shields.io/github/issues/yufengwudcs/ScisTree2/issues" alt="GitHub issues"/>
     </a>
     <a href="https://pypi.org/project/scistree2/">
-    <img src="https://img.shields.io/pypi/v/scistree2?logoColor=%23325ea8&color=%23025dfa
-    " alt="version"/>
+    <img src="https://img.shields.io/pypi/v/scistree2?color=blue" alt="version"/>
     </a>
     <a href="https://scistree2.readthedocs.io/en/latest/">
     <img src="https://img.shields.io/readthedocs/scistree2/latest" alt="docs"/>
