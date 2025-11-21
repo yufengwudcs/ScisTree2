@@ -11,6 +11,7 @@ requires-python = ">=3.6"
 license = { text = "GPL3" }
 authors = [
     { name = "Haotian Zhang", email = "haotianzh@uconn.edu" },
+    { name = "Yiming Zhang", email = "ymzhang052@gmail.com"},
     { name = "Yufeng Wu", email = "yufeng.wu@uconn.edu" }
 ]
 keywords = ["cell lineage tree", "fast inference"]
