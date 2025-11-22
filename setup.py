@@ -57,14 +57,14 @@ class CustomBuild(build_py):
 
         if sys.platform == "win32":
             # Windows: Use nmake
-            build_cmd = ["nmake", "/f", "Makefile.win"]
-            clean_cmd = ["nmake", "/f", "Makefile.win", "clean"]
+            build_cmd = "nmake /f Makefile.win"
+            clean_cmd = "nmake /f Makefile.win clean"
             binary_name_src = "scistree.exe"
             binary_name_dest = "scistree.exe"
         else:
             # Linux/Mac: Use standard make
-            build_cmd = ["make"]
-            clean_cmd = ["make", "clean"]
+            build_cmd = "make"
+            clean_cmd = "make clean"
             binary_name_src = "scistree"
             binary_name_dest = "scistree"
 

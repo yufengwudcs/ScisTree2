@@ -7,31 +7,14 @@ import numpy as np
 import pandas as pd
 import subprocess as sp
 import importlib.resources
-from contextlib import contextmanager
 from .treeutils import *
 
 
-@contextmanager
 def get_executable_path(provided_path=None):
-    """
-    Context manager to resolve the binary path safely using importlib.
-    Handles cross-platform naming (scsim.exe vs scsim).
-    """
     if provided_path:
-        yield provided_path
-        return
+        return provided_path
     binary_name = "scistree.exe" if sys.platform == "win32" else "scistree"
-    try:
-        with importlib.resources.path("scistree2.bin", binary_name) as bin_path:
-            yield str(bin_path)
-    except (ImportError, ModuleNotFoundError):
-        local_path = os.path.join(os.path.dirname(__file__), "bin", binary_name)
-        if os.path.exists(local_path):
-            yield local_path
-        else:
-            raise FileNotFoundError(
-                f"Could not locate {binary_name} in package resources or {local_path}"
-            )
+    return os.path.join(os.path.dirname(__file__), 'bin', binary_name)
 
 
 class ScisTree2:
