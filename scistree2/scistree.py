@@ -14,7 +14,7 @@ def get_executable_path(provided_path=None):
     if provided_path:
         return provided_path
     binary_name = "scistree.exe" if sys.platform == "win32" else "scistree"
-    return os.path.join(os.path.dirname(__file__), 'bin', binary_name)
+    return os.path.join(os.path.dirname(__file__), "bin", binary_name)
 
 
 class ScisTree2:
