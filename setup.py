@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, Distribution
 from setuptools.command.build_py import build_py
 import subprocess
 import shutil
@@ -13,6 +13,11 @@ PACKAGE_DIR = 'scistree2'
 # CPP_DIR = f'{PROJECT_ROOT}/src'
 # PACKAGE_DIR = f'{PROJECT_ROOT}/scistree2'
 
+
+class BinaryDistribution(Distribution):
+    def has_ext_modules(self):
+        return True  # <--- The magic line. Forces "platlib" (platform-specific) wheel.
+    
 
 class BuildWithMake(build_py):
     def run(self):
@@ -38,15 +43,15 @@ class BuildWithMake(build_py):
 setup(
     name=PACKAGE_NAME,
     packages=[PACKAGE_DIR],
-    cmdclass={'build_py': BuildWithMake},
+    # cmdclass={'build_py': BuildWithMake},
     install_requires=[
         'numpy',
         'pptree',
         'phytreeviz'
     ],
-    python_requires='>=3.6',
     package_data={
-        PACKAGE_NAME: ['bin/scistree'],  # Corrected path
+        PACKAGE_NAME: ['bin/*'],  # Corrected path
     },
-    include_package_data=True,
+    include_package_data=False,
+    distclass=BinaryDistribution,
 )

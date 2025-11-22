@@ -7,7 +7,7 @@ name = "scistree2"
 dynamic = ["version"]     
 description = "Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search"
 readme = "README.md" 
-requires-python = ">=3.6" 
+requires-python = ">=3.8" 
 license = { text = "GPL3" }
 authors = [
     { name = "Haotian Zhang", email = "haotianzh@uconn.edu" },
@@ -25,6 +25,44 @@ dependencies = [
 
 [tool.setuptools.dynamic]
 version = {attr = "scistree2.__version__"}
+
+[tool.cibuildwheel]
+skip = "cp36-* *-win32 pp*"
+
+# --- LINUX BUILD ---
+[tool.cibuildwheel.linux]
+before-build = """
+mkdir -p scistree/bin && \
+cd src && \
+make clean && \
+make && \
+mv scistree ../scistree/bin/scistree
+"""
+
+# --- MACOS BUILD ---
+[tool.cibuildwheel.macos]
+before-build = """
+mkdir -p scistree/bin && \
+cd src && \
+make clean && \
+make && \
+mv scistree ../scistree/bin/scistree
+"""
+
+# --- WINDOWS BUILD ---
+[tool.cibuildwheel.windows]
+# 1. Create bin dir
+# 2. Enter src dir
+# 3. Run nmake on Makefile.win (generates scistree.exe inside src/)
+# 4. Move binary up to scistree/bin/
+before-build = """
+if not exist scistree\\bin mkdir scistree\\bin && \
+cd src && \
+nmake /f Makefile.win clean && \
+nmake /f Makefile.win && \
+move scistree.exe ..\\scistree\\bin\\scistree.exe
+"""
+
 
 [project.urls]
 Homepage = "https://github.com/yufengwudcs/ScisTree2"

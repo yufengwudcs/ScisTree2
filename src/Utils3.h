@@ -15,7 +15,14 @@ using namespace std;
 
 #include <sys/types.h>
 #include <time.h>
-#include <unistd.h>
+// #include <unistd.h>
+#ifdef _WIN32
+    #include <io.h>
+    #include <process.h>
+    #include <windows.h>
+#else
+    #include <unistd.h>
+#endif
 
 #include "Utils.h"
 #include "Utils2.h"

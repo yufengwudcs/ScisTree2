@@ -12,7 +12,7 @@
 
 #include <sys/types.h>
 #include <time.h>
-#include <unistd.h>
+// #include <unistd.h>
 #include <ctime>
 #include <cstdlib>
 #include <cstdio>
@@ -21,6 +21,14 @@
 #include "PhylogenyTreeBasic.h"
 #include "BinaryMatrix.h"
 
+
+#ifdef _WIN32
+    #include <io.h>
+    #include <process.h>
+    #include <windows.h>
+#else
+    #include <unistd.h>
+#endif
 
 using namespace std;
 

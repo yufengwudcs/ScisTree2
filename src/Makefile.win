@@ -1,0 +1,31 @@
+# Windows NMAKE Makefile for scistree
+
+CC = cl
+# /O2: Speed, /W3: Warning lvl 3, /EHsc: Exceptions
+# /D_CRT_SECURE_NO_WARNINGS: Silence unsafe string warnings
+# /DNOMINMAX: Fix min/max macro collision
+CFLAGS = /O2 /W3 /EHsc /std:c++14 /D_CRT_SECURE_NO_WARNINGS /DNOMINMAX
+
+TARGET = scistree.exe
+
+# List of object files matching your Linux Makefile
+OBJS = Utils.obj Utils2.obj Utils3.obj Utils4.obj UtilsNumerical.obj \
+       UnWeightedGraph.obj TreeBuilder.obj RerootTreeUtils.obj \
+       BioSequenceMatrix.obj BinaryMatrix.obj GenotypeMatrix.obj \
+       PhylogenyTreeBasic.obj PhylogenyTree.obj MarginalTree.obj RBT.obj \
+       ScistGenotype.obj ScistPerfPhyUtils.obj ScistPerfPhyImp.obj \
+       ScistDoublet.obj ScistErrRateInf.obj ScistLocalSearch.obj \
+       main.obj
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) /Fe$(TARGET) $(OBJS)
+
+# Implicit rule to compile .cpp to .obj
+.cpp.obj:
+	$(CC) $(CFLAGS) /c $<
+
+clean:
+	if exist *.obj del *.obj
+	if exist *.exe del *.exe

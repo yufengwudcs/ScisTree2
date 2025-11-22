@@ -1,5 +1,6 @@
 #include "BinaryMatrix.h"
 #include <cmath>
+#include <vector>
 #include <cstdlib>
 #include <cstdio>
 #include <algorithm>
@@ -1864,7 +1865,7 @@ void SplitMatrixIntoMaximalFullyCompatRegs(const BinaryMatrix &mat, vector<pair<
 
 void ReadSitePosFromFirstRowInFile(const char *filename, int numSites, vector<double> &listSitePos)
 {
-    //
+    // TODO: sites limitation.
     ifstream inFile(filename);
     if( !inFile )
     {
@@ -1873,7 +1874,9 @@ void ReadSitePosFromFirstRowInFile(const char *filename, int numSites, vector<do
     string whitespace = " ";
     int MAX_NUM_SITES = 102400;
     const int BUF_SZ = MAX_NUM_SITES*sizeof(int);
-    char buf[BUF_SZ];
+    // char buf[BUF_SZ];
+	std::vector<char> buf_vec(BUF_SZ);
+	char* buf = buf_vec.data();
     inFile.getline(buf, BUF_SZ);
     string strbuf(buf);
     size_t strEnd = strbuf.find_last_not_of(whitespace);

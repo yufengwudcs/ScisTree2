@@ -15,9 +15,18 @@ using namespace std;
 
 #include <sys/types.h>
 #include <time.h>
-#include <unistd.h>
+// #include <unistd.h>
+#ifdef _WIN32
+    #include <io.h>
+    #include <process.h>
+    #include <windows.h>
+#else
+    #include <unistd.h>
+#endif
 #include <ctime>
 #include "Utils.h"
+
+
 
 // This file contains some extra utilties that are frequently used
 
