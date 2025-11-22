@@ -1,15 +1,40 @@
-
 # Here, we provide a Python interface for conveniently calling Scistree2.
 import os
+import sys
 import multiprocessing as mp
 import uuid
 import numpy as np
 import pandas as pd
 import subprocess as sp
+import importlib.resources
+from contextlib import contextmanager
 from .treeutils import *
 
 
-class ScisTree2():
+@contextmanager
+def get_executable_path(provided_path=None):
+    """
+    Context manager to resolve the binary path safely using importlib.
+    Handles cross-platform naming (scsim.exe vs scsim).
+    """
+    if provided_path:
+        yield provided_path
+        return
+    binary_name = "scistree.exe" if sys.platform == "win32" else "scistree"
+    try:
+        with importlib.resources.path("scistree2.bin", binary_name) as bin_path:
+            yield str(bin_path)
+    except (ImportError, ModuleNotFoundError):
+        local_path = os.path.join(os.path.dirname(__file__), "bin", binary_name)
+        if os.path.exists(local_path):
+            yield local_path
+        else:
+            raise FileNotFoundError(
+                f"Could not locate {binary_name} in package resources or {local_path}"
+            )
+
+
+class ScisTree2:
     """
     Scistree2 Caller.
 
@@ -19,11 +44,14 @@ class ScisTree2():
         nj: Call NJ only, serves when M is very big.
         spr: Enable SPR local search. Default is on.
         nni: Enable NNI local search. Default is off.
-        iterative: Enable iterative optimization. Default is off.                                                                           
+        iterative: Enable iterative optimization. Default is off.
         verbose: Show outputs.
     """
-    def __init__(self, threads=-1, nj=False, spr=True, nni=False, max_iter=0, verbose=True):
-        self.bin_path = os.path.join(os.path.dirname(__file__), 'bin', 'scistree')
+
+    def __init__(
+        self, threads=-1, nj=False, spr=True, nni=False, max_iter=0, verbose=True
+    ):
+        self.bin_path = get_executable_path()
         self.nj = nj
         self.spr = spr
         self.nni = nni
@@ -31,22 +59,20 @@ class ScisTree2():
         self.max_iter = max_iter
         self.cmd = self.build_cmd(self.bin_path, threads, nj, nni, verbose)
 
-        
     def build_cmd(self, bin_path, threads, nj, nni, verbose):
         if threads == -1:
             threads = mp.cpu_count()
-        cmd = [bin_path, '-T', str(threads)]
+        cmd = [bin_path, "-T", str(threads)]
         if verbose:
-            cmd.append('-v')
+            cmd.append("-v")
         if nj:
-            cmd.append('-n')
+            cmd.append("-n")
         if nni:
-            cmd.append('-q')
+            cmd.append("-q")
         if self.max_iter:
-            cmd.append('-s')
+            cmd.append("-s")
             cmd.append(str(self.max_iter))
-        return cmd 
-    
+        return cmd
 
     @staticmethod
     def write_to_scistree(genotype_matrix):
@@ -55,37 +81,35 @@ class ScisTree2():
         """
         nsite, ncell = genotype_matrix.shape
         prefix = uuid.uuid4()
-        output = f'{prefix}.scistree.out'
-        with open(output, 'w') as out:
-            out.write(f'HAPLOID\n')
+        output = f"{prefix}.scistree.out"
+        with open(output, "w") as out:
+            out.write(f"HAPLOID\n")
             for i in range(nsite):
                 for j in range(ncell):
                     prob = genotype_matrix[i, j]
-                    out.write(f' {prob:.5f}')
-                out.write('\n')
+                    out.write(f" {prob:.5f}")
+                out.write("\n")
         return output
-    
 
     @staticmethod
     def read_scistree_genotype(prefix):
         """
         Get the genotype matrix from the outputs of Scistree2.
         """
-        geno_file = f'{prefix}.genos.imp'
+        geno_file = f"{prefix}.genos.imp"
         genotypes = []
-        with open(geno_file, 'r') as f:
+        with open(geno_file, "r") as f:
             for line in f.readlines():
-                if line.startswith('Site'):
+                if line.startswith("Site"):
                     line = line.strip()
-                    genos = line.split('\t')[1].split()
+                    genos = line.split("\t")[1].split()
                     genos = list(map(int, genos))
                     genotypes.append(genos)
         return np.array(genotypes)
-    
 
     def bootstrap(self, tree, gp, num_bootstrap=100, num_site=-1):
         """
-        Felsenstein’s tree bootstrp. 
+        Felsenstein’s tree bootstrp.
         """
         if num_site == -1:
             num_site = gp.nsite
@@ -109,7 +133,6 @@ class ScisTree2():
                     n = 0
                 tree[node].branch_confidence = n / num_bootstrap
         return tree
-    
 
     def infer(self, gp, verbose=False):
         """
@@ -126,30 +149,38 @@ class ScisTree2():
         """
         cell_names = gp.cell_names
         output = self.write_to_scistree(gp.probs)
-        cmd = self.cmd + [f'{output}']
-        cmd = ' '.join(cmd)
+        cmd = self.cmd + [f"{output}"]
+        cmd = " ".join(cmd)
         try:
-            res = sp.run(cmd, shell=True, stdout=sp.PIPE, encoding='utf-8').stdout.strip().split('\n')
+            res = (
+                sp.run(cmd, shell=True, stdout=sp.PIPE, encoding="utf-8")
+                .stdout.strip()
+                .split("\n")
+            )
             if verbose:
-                print('\n'.join(res))
-            nwk = res[-2].split(':')[1].strip() + ';'
+                print("\n".join(res))
+            nwk = res[-2].split(":")[1].strip() + ";"
             if cell_names:
-                t = relabel(from_newick(nwk), name_map={str(i+1): name for i, name in enumerate(cell_names)})
+                t = relabel(
+                    from_newick(nwk),
+                    name_map={str(i + 1): name for i, name in enumerate(cell_names)},
+                )
                 nwk = t.output()
             imp_geno, ml, tree = evaluate(gp, nwk, return_tree=True)
             return tree, imp_geno, ml
         # clean output
         except Exception as e:
-                print('scistree running failed.')
-                if os.path.exists(output):
-                    os.remove(output)
-                raise e
+            print("scistree running failed.")
+            if os.path.exists(output):
+                os.remove(output)
+            raise e
         finally:
             if os.path.exists(output):
                 os.remove(output)
-            if os.path.exists(f'{output}.genos.imp'):
-                os.remove(f'{output}.genos.imp')
-    
+            if os.path.exists(f"{output}.genos.imp"):
+                os.remove(f"{output}.genos.imp")
+
+
 @staticmethod
 def evaluate(gp, nwk, return_tree=False):
     """
@@ -165,19 +196,25 @@ def evaluate(gp, nwk, return_tree=False):
         ml [float]: Log likelihood of the optimal tree.
         tree: Optinal
     """
-    assert isinstance(nwk, str), 'tree should be a newick string.'
+    assert isinstance(nwk, str), "tree should be a newick string."
     cell_names = gp.cell_names
     site_names = gp.site_names
-    tree = relabel(from_newick(nwk), name_map={name: str(i) for i, name in enumerate(cell_names)})
-    traveror = TraversalGenerator(order='post')
-    max_mls = np.zeros(gp.probs.shape[0]) # - np.inf 
+    tree = relabel(
+        from_newick(nwk), name_map={name: str(i) for i, name in enumerate(cell_names)}
+    )
+    traveror = TraversalGenerator(order="post")
+    max_mls = np.zeros(gp.probs.shape[0])  # - np.inf
     max_ml_nodes = [None] * gp.probs.shape[0]
-    g = np.log(1-gp.probs) - np.log(gp.probs) # in log space to avoid numerical overflow
+    g = np.log(1 - gp.probs) - np.log(
+        gp.probs
+    )  # in log space to avoid numerical overflow
     for node in traveror(tree):
         if node.is_leaf():
             likelihood = g[:, int(node.name)]
         else:
-            likelihood = node.get_children()[0].likelihood + node.get_children()[1].likelihood
+            likelihood = (
+                node.get_children()[0].likelihood + node.get_children()[1].likelihood
+            )
         for i, l in enumerate(likelihood):
             if l > max_mls[i]:
                 max_mls[i] = l
@@ -192,8 +229,13 @@ def evaluate(gp, nwk, return_tree=False):
             inds = [int(leaf.name) for leaf in ml_node.get_leaves()]
             imputed_genotype[i, inds] = 1
     # rename leaves back to cell names
-    tree = relabel(tree, name_map={str(i): name for i, name in enumerate(cell_names)}) 
+    tree = relabel(tree, name_map={str(i): name for i, name in enumerate(cell_names)})
     if return_tree:
-        return pd.DataFrame(imputed_genotype, index=gp.site_names, columns=gp.cell_names), sum(max_mls[max_mls != -np.inf]), tree
-    return pd.DataFrame(imputed_genotype, index=gp.site_names, columns=gp.cell_names), sum(max_mls[max_mls != -np.inf])
-
+        return (
+            pd.DataFrame(imputed_genotype, index=gp.site_names, columns=gp.cell_names),
+            sum(max_mls[max_mls != -np.inf]),
+            tree,
+        )
+    return pd.DataFrame(
+        imputed_genotype, index=gp.site_names, columns=gp.cell_names
+    ), sum(max_mls[max_mls != -np.inf])
