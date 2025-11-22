@@ -32,21 +32,21 @@ skip = "cp36-* *-win32 pp*"
 # --- LINUX BUILD ---
 [tool.cibuildwheel.linux]
 before-build = """
-mkdir -p scistree/bin && \
+mkdir -p scistree2/bin && \
 cd src && \
 make clean && \
 make && \
-mv scistree ../scistree/bin/scistree
+mv scistree ../scistree2/bin/scistree
 """
 
 # --- MACOS BUILD ---
 [tool.cibuildwheel.macos]
 before-build = """
-mkdir -p scistree/bin && \
+mkdir -p scistree2/bin && \
 cd src && \
 make clean && \
 make && \
-mv scistree ../scistree/bin/scistree
+mv scistree ../scistree2/bin/scistree
 """
 
 # --- WINDOWS BUILD ---
@@ -56,11 +56,11 @@ mv scistree ../scistree/bin/scistree
 # 3. Run nmake on Makefile.win (generates scistree.exe inside src/)
 # 4. Move binary up to scistree/bin/
 before-build = """
-if not exist scistree\\bin mkdir scistree\\bin && \
+if not exist scistree2\\bin mkdir scistree2\\bin && \
 cd src && \
 nmake /f Makefile.win clean && \
 nmake /f Makefile.win && \
-move scistree.exe ..\\scistree\\bin\\scistree.exe
+move scistree.exe ..\\scistree2\\bin\\scistree.exe
 """
 
 

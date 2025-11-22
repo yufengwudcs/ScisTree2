@@ -70,8 +70,8 @@ class CustomBuild(build_py):
 
         try:
             # Run clean then build inside the 'src' directory
-            subprocess.check_call(clean_cmd, cwd=SRC_DIR)
-            subprocess.check_call(build_cmd, cwd=SRC_DIR)
+            subprocess.check_call(clean_cmd, cwd=SRC_DIR, shell=True)
+            subprocess.check_call(build_cmd, cwd=SRC_DIR, shell=True)
         except subprocess.CalledProcessError as e:
             print("Error during compilation:", e)
             sys.exit(1)
