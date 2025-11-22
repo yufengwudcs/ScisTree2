@@ -89,3 +89,8 @@ scist: Utils.o Utils2.o  Utils3.o Utils4.o UtilsNumerical.o UnWeightedGraph.o Tr
        BinaryMatrix.o GenotypeMatrix.o PhylogenyTreeBasic.o PhylogenyTree.o MarginalTree.o RBT.o \
        ScistGenotype.o ScistPerfPhyUtils.o ScistPerfPhyImp.o ScistDoublet.o ScistErrRateInf.o ScistLocalSearch.o main.o \
         -lm -lpthread
+
+
+clean:
+	rm -rf *.o scistree
+	
