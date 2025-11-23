@@ -76,7 +76,7 @@ You will need **g++** and **make** if you are using Linux or macOS, or the **Mic
         ```bash
         cd src
         nmake /f Makefile.win
-        # You can then test it directly, e.g., ./scistree example_input.txt
+        # You can then test it directly, e.g., scistree.exe example_input.txt
         ```
     This step is not required for the Python package installation if using `pip install .` as described above. See more details below.
 
