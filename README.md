@@ -20,11 +20,10 @@ You can refer to our [documentation](https://scistree2.readthedocs.io/en/latest/
 ## Required Tools
 
 To use ScisTree2, you will need the following tools and libraries installed:
-*   **`python` & `pip`**: Version 3.6 or higher.
-*   **`g++`**: A C++ compiler. (from source only)
-*   **`make`**: For building the backend. (from source only)
+*   **`python` & `pip`**: Version 3.8 or higher.
 
-**We have successfully tested it on Linux, macOS, and Windows (via WSL).*
+
+**We have successfully tested it on Linux, macOS, and Windows.*
 
 ## Installation
 
@@ -39,6 +38,9 @@ To use ScisTree2, you will need the following tools and libraries installed:
     ```
 
 ### 2. Install from source:
+You will need **g++** and **make** if you are using Linux or macOS, or the **Microsoft C++ Build Tools** if you are on Windows, in order to compile the C++ code.
+
+
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/yufengwudcs/ScisTree2.git
@@ -60,12 +62,19 @@ To use ScisTree2, you will need the following tools and libraries installed:
     The `setup.py` script is configured to first build the C++ executable (similar to running `make` in the `src` directory) and then include it in the Python package. -->
 
 3.  **(Optional) Manual C++ backend build (for testing/development):**
-    If you want to build or test the C++ backend (`scistree`) independently, you can navigate to the `src` directory and compile it using `make`:
-    ```bash
-    cd src
-    make
-    # You can then test it directly, e.g., ./scistree example_input.txt
-    ```
+    If you want to build or test the C++ backend (`scistree`) for Linux, you can navigate to the `src` directory and compile it:
+    - Linux/macOS:
+        ```bash
+        cd src
+        make
+        # You can then test it directly, e.g., ./scistree example_input.txt
+        ```
+    - Windows:
+        ```bash
+        cd src
+        nmake /f Makefile.win
+        # You can then test it directly, e.g., ./scistree example_input.txt
+        ```
     This step is not required for the Python package installation if using `pip install .` as described above. See more details below.
 
 ## Tutorial
