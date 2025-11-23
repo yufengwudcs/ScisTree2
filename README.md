@@ -2,7 +2,7 @@
   <img src="https://scistree2.readthedocs.io/en/latest/_static/logo.png" alt="ScisTree2 Logo" width="200">
 </p>
 <p align="center">
-  <a href="https://github.com/yufengwudcs/ScisTree2/issues"><img src="https://img.shields.io/github/issues/yufengwudcs/ScisTree2
+  <a href="https://colab.research.google.com/drive/18tbk2oxk-qsu064OTgpJJaRshbAfrtlV?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="colab"/></a>&thinsp;<a href="https://github.com/yufengwudcs/ScisTree2/issues"><img src="https://img.shields.io/github/issues/yufengwudcs/ScisTree2
   "/></a>&thinsp;<a href="https://pypi.org/project/scistree2/"><img src="https://img.shields.io/pypi/v/scistree2?color=blue"/></a>&thinsp;<a href="https://scistree2.readthedocs.io/en/latest/"><img src="https://img.shields.io/readthedocs/scistree2/latest"/></a>&thinsp;<a href=""><img src="https://img.shields.io/github/license/yufengwudcs/ScisTree2?color=%239b02fa"/></a>&thinsp;<a href="https://github.com/yufengwudcs/ScisTree2"><img src="https://img.shields.io/github/stars/yufengwudcs/ScisTree2?style=social"/></a>
 </p>
 <h2 align="center">Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data </h2>
@@ -84,6 +84,10 @@ ScisTree2 offers both Python and C++ interfaces. We recommend using the Python v
 A detailed tutorial on how to use ScisTree2 in Python is available as a Jupyter Notebook in the `tutorials/` directory:
 
 *   **[ScisTree2 Tutorial](tutorials/ScisTree2_Tutorial.ipynb)**
+
+Or you can try it easily on Google Colab:  <a href="https://colab.research.google.com/drive/18tbk2oxk-qsu064OTgpJJaRshbAfrtlV?usp=sharing">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Colab"/>
+</a>
 
 The tutorial covers:
 *   Getting started with ScisTree2.
