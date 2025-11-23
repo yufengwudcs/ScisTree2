@@ -62,7 +62,7 @@ You will need **g++** and **make** if you are using Linux or macOS, or the **Mic
     The `setup.py` script is configured to first build the C++ executable (similar to running `make` in the `src` directory) and then include it in the Python package. -->
 
 3.  **(Optional) Manual C++ backend build (for testing/development):**
-    If you want to build or test the C++ backend (`scistree`) for Linux, you can navigate to the `src` directory and compile it:
+    If you want to build or test the C++ backend (`scistree`), you can navigate to the `src` directory and compile it:
     - Linux/macOS:
         ```bash
         cd src
