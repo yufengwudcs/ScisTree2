@@ -12,6 +12,9 @@ Software accompanyment for **"ScisTree2 enables large-scale inference of cell li
 
 This is an enhanced version of ScisTree (*Accurate and efficient cell lineage tree inference from noisy single cell data: the maximum likelihood perfect phylogeny approach, Bioinformatics, Wu, Volume 36, Issue 3, Pages 742–750, 2020*).
 
+> **Note:** If you have copy-number data and want to infer a cell lineage tree from both SNVs and CNAs, please refer to [ScisTreeCNA](https://github.com/haotianzh/scistreecna).
+
+
 
 ## Documentation
 You can refer to our [documentation](https://scistree2.readthedocs.io/en/latest/) for more details, or simply follow the instructions below.
