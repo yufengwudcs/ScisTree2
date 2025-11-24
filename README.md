@@ -85,7 +85,7 @@ You will need **g++** and **make** if you are using Linux or macOS, or the **Mic
         nmake /f Makefile.win
         # You can then test it directly, e.g., scistree.exe example_input.txt
         ```
-    This step is not required for the Python package installation if using `pip install .` as described above. See more details below.
+    This step is not required for the Python package installation if using `pip install .` as described above. 
 
 ## Tutorial
 ScisTree2 offers both Python and C++ interfaces. We recommend using the Python version because it provides a wider variety of supported input formats and evaluation tools, and it is more easily integrated into the broader Python ecosystem.
