@@ -2,8 +2,8 @@
   <img src="https://scistree2.readthedocs.io/en/latest/_static/logo.png" alt="ScisTree2 Logo" width="200">
 </p>
 <p align="center">
-  <a href="https://colab.research.google.com/drive/18tbk2oxk-qsu064OTgpJJaRshbAfrtlV?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="colab"/></a>&thinsp;<a href="https://github.com/yufengwudcs/ScisTree2/issues"><img src="https://img.shields.io/github/issues/yufengwudcs/ScisTree2
-  "/></a>&thinsp;<a href="https://pypi.org/project/scistree2/"><img src="https://img.shields.io/pypi/v/scistree2?color=blue"/></a>&thinsp;<a href="https://scistree2.readthedocs.io/en/latest/"><img src="https://img.shields.io/readthedocs/scistree2/latest"/></a>&thinsp;<a href=""><img src="https://img.shields.io/github/license/yufengwudcs/ScisTree2?color=%239b02fa"/></a>&thinsp;<a href="https://github.com/yufengwudcs/ScisTree2"><img src="https://img.shields.io/github/stars/yufengwudcs/ScisTree2?style=social"/></a>
+  <a href="https://colab.research.google.com/drive/18tbk2oxk-qsu064OTgpJJaRshbAfrtlV?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="colab"/></a>&thinsp;<a href="https://pypi.org/project/scistree2/"><img src="https://img.shields.io/pypi/v/scistree2?color=blue"/></a>&thinsp;<a href="https://scistree2.readthedocs.io/en/latest/"><img src="https://img.shields.io/readthedocs/scistree2/latest"/></a>&thinsp;<a href=""><img src="https://img.shields.io/github/license/yufengwudcs/ScisTree2?color=%239b02fa"/></a>&thinsp;<a href="https://genome.cshlp.org/content/early/2025/09/03/gr.280542.125.abstract"><img alt="genomeres" src="https://img.shields.io/badge/10.1101%2Fgr.280542.125-ss?label=DOI&color=%23ff0000&link=https%3A%2F%2Fgenome.cshlp.org%2Fcontent%2Fearly%2F2025%2F09%2F03%2Fgr.280542.125.abstract"></a>
+
 </p>
 <h2 align="center">Fast cell lineage tree reconstruction and genotype calling for large single cell DNA sequencing data </h2>
 
