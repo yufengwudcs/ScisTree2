@@ -12,13 +12,13 @@ Software accompanyment for:
 >*[ScisTree2 enables large-scale inference of cell lineage trees and genotype calling using efficient local search", Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, Genome Research, in press, 2025.](https://genome.cshlp.org/content/early/2025/09/03/gr.280542.125.abstract)*
 
 Here is the conference version: 
->*[ScisTree2: An Improved Method for Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single Cell Data, RECOMB 2025](https://link.springer.com/chapter/10.1007/978-3-031-90252-9_21)*, presented at RECOMB 2025.
+>*[ScisTree2: An Improved Method for Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single Cell Data, RECOMB 2025.](https://link.springer.com/chapter/10.1007/978-3-031-90252-9_21)* (presented at RECOMB 2025).
 
 and preprint version:
->*[Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search*, Haotian Zhang, Yiming Zhang, Teng Gao and Yufeng Wu, RECOMB, 2025](https://www.biorxiv.org/content/10.1101/2024.11.08.622704v1)*
+>*[Large-scale Inference of Cell Lineage Trees and Genotype Calling from Noisy Single-Cell Data Using Efficient Local Search*, biorxiv, 2025.](https://www.biorxiv.org/content/10.1101/2024.11.08.622704v1)*
 
 This is an enhanced version of ScisTree: 
->*[Accurate and efficient cell lineage tree inference from noisy single cell data: the maximum likelihood perfect phylogeny approach, Bioinformatics, Wu, Volume 36, Issue 3, Pages 742–750, 2020](https://academic.oup.com/bioinformatics/article/36/3/742/5555811)*
+>*[Accurate and efficient cell lineage tree inference from noisy single cell data: the maximum likelihood perfect phylogeny approach, Bioinformatics, 2020.](https://academic.oup.com/bioinformatics/article/36/3/742/5555811)*
 
 If you find this work helpful, please consider citing our Genome Research paper.
 
