@@ -112,7 +112,7 @@ def posterior_probability_GATK(l00, l01, l11, prior_ref=0.5, margin=1e-5):
     Calculate the posterior probability of each SNV being a true positive.
 
     We use GATK likelihood with ADO included as described in CellCoal manual (https://dapogon.github.io/cellcoal/cellcoal.manual.v1.1.html#537_genotype_likelihoods)
-        P(D|G={g_1, g_2}) = (1-ado)\prod_{i=1}^{r}P(b_i|G={g_1, g_2}) + 0.5*ado[\prod_{i=1}^{r}P(b_i|G={g_1}) + \prod_{i=1}^{r}P(b_i|G={g_2})]
+        P(D|G={g_1, g_2}) = (1-ado) prod_{i=1}^{r}P(b_i|G={g_1, g_2}) + 0.5*ado[prod_{i=1}^{r}P(b_i|G={g_1}) + prod_{i=1}^{r}P(b_i|G={g_2})]
     """
     g00 = prior_ref**2 * l00
     g01 = 2*(1 - prior_ref) * prior_ref * l01
